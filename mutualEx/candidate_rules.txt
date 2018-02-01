@@ -1,0 +1,18 @@
+rule_1:   n[i] = E -> n[i] != C
+rule_2:   n[i] = E -> n[j] != C
+rule_3:   n[i] = T & x = true -> n[i] != I
+rule_4:   n[i] = E -> x = false
+rule_5:   n[i] = E -> n[i] != I
+rule_6:   n[i] = T & x = true -> n[i] != C
+rule_7:   x = true -> n[i] != E
+rule_8:   n[i] = T & x = true -> n[i] != E
+rule_9:   n[i] = T & x = true -> n[j] != C
+rule_10:   n[i] = T -> n[i] != C
+rule_11:   x = true -> n[j] != E
+rule_12:   n[i] = T & x = true -> n[j] != E
+rule_13:   x = true -> n[j] != C
+rule_14:   n[i] = E -> n[i] != T
+rule_15:   n[i] = T -> n[i] != E
+rule_16:   x = true -> n[i] != C
+rule_17:   n[i] = E -> n[j] != E
+rule_18:   n[i] = T -> n[i] != I

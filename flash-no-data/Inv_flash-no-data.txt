@@ -1,0 +1,449 @@
+rule_1:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.Dirty = true
+rule_2:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.Dirty = true
+rule_3:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.Dirty = true
+rule_4:   Sta.Dir.HeadPtr = i -> Sta.ShWbMsg.Proc != i
+rule_5:   Sta.Dir.Local = true -> Sta.ShWbMsg.Proc != i
+rule_6:   Sta.Dir.Pending = false -> Sta.ShWbMsg.Proc != i
+rule_7:   Sta.Dir.InvSet[i] = true -> Sta.ShWbMsg.Proc != i
+rule_8:   Sta.Dir.InvSet[j] = true -> Sta.ShWbMsg.Proc != i
+rule_9:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.ShWbMsg.Proc != i
+rule_10:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.ShWbMsg.Proc != i
+rule_11:   Sta.Proc[j].CacheState = CACHE_E -> Sta.ShWbMsg.Proc != i
+rule_12:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.ShWbMsg.Proc != i
+rule_13:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.ShWbMsg.Proc != i
+rule_14:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.ShWbMsg.Proc != i
+rule_15:   Sta.Dir.HeadPtr = j -> Sta.ShWbMsg.Proc != j
+rule_16:   Sta.Dir.Local = true -> Sta.ShWbMsg.Proc != j
+rule_17:   Sta.Dir.Pending = false -> Sta.ShWbMsg.Proc != j
+rule_18:   Sta.Dir.InvSet[i] = true -> Sta.ShWbMsg.Proc != j
+rule_19:   Sta.Dir.InvSet[j] = true -> Sta.ShWbMsg.Proc != j
+rule_20:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.ShWbMsg.Proc != j
+rule_21:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.ShWbMsg.Proc != j
+rule_22:   Sta.Proc[i].CacheState = CACHE_E -> Sta.ShWbMsg.Proc != j
+rule_23:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.ShWbMsg.Proc != j
+rule_24:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.ShWbMsg.Proc != j
+rule_25:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.ShWbMsg.Proc != j
+rule_26:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.Local = true
+rule_27:   Sta.Dir.HeadPtr = i -> Sta.Dir.HeadVld = true
+rule_28:   Sta.Dir.HeadPtr = j -> Sta.Dir.HeadVld = true
+rule_29:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.HeadVld = true
+rule_30:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.HeadVld = true
+rule_31:   Sta.Dir.Local = false & Sta.Dir.Dirty = true -> Sta.Dir.HeadVld = true
+rule_32:   Sta.Dir.Local = true -> Sta.FwdCmd != UNI_Get
+rule_33:   Sta.Dir.Pending = false -> Sta.FwdCmd != UNI_Get
+rule_34:   Sta.Dir.InvSet[i] = true -> Sta.FwdCmd != UNI_Get
+rule_35:   Sta.Dir.InvSet[j] = true -> Sta.FwdCmd != UNI_Get
+rule_36:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.FwdCmd != UNI_Get
+rule_37:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.FwdCmd != UNI_Get
+rule_38:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.FwdCmd != UNI_Get
+rule_39:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.FwdCmd != UNI_Get
+rule_40:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.FwdCmd != UNI_Get
+rule_41:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.FwdCmd != UNI_Get
+rule_42:   Sta.Dir.Local = true -> Sta.FwdCmd = UNI_None
+rule_43:   Sta.Dir.Pending = false -> Sta.FwdCmd = UNI_None
+rule_44:   Sta.Dir.InvSet[i] = true -> Sta.FwdCmd = UNI_None
+rule_45:   Sta.Dir.InvSet[j] = true -> Sta.FwdCmd = UNI_None
+rule_46:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.FwdCmd = UNI_None
+rule_47:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.FwdCmd = UNI_None
+rule_48:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.FwdCmd = UNI_None
+rule_49:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.FwdCmd = UNI_None
+rule_50:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.FwdCmd = UNI_None
+rule_51:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.FwdCmd = UNI_None
+rule_52:   Sta.Dir.HeadPtr = i & Sta.Dir.Local = true -> Sta.Dir.Dirty = false
+rule_53:   Sta.Dir.Local = true & Sta.Dir.HeadPtr = j -> Sta.Dir.Dirty = false
+rule_54:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.Dir.Dirty = false
+rule_55:   Sta.Dir.HeadVld = false & Sta.Dir.Local = false -> Sta.Dir.Dirty = false
+rule_56:   Sta.Dir.HeadVld = false & Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.Dir.Dirty = false
+rule_57:   Sta.Dir.Dirty = true -> Sta.Dir.ShrVld = false
+rule_58:   Sta.Dir.Pending = true -> Sta.Dir.ShrVld = false
+rule_59:   Sta.Dir.HeadVld = false -> Sta.Dir.ShrVld = false
+rule_60:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Dir.ShrVld = false
+rule_61:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Dir.ShrVld = false
+rule_62:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.ShrVld = false
+rule_63:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.ShrVld = false
+rule_64:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.ShrVld = false
+rule_65:   Sta.Dir.HeadVld = true -> Sta.Dir.HeadPtr != Home
+rule_66:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.HeadPtr != Home
+rule_67:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.HeadPtr != Home
+rule_68:   Sta.Dir.Local = false & Sta.Dir.Dirty = true -> Sta.Dir.HeadPtr != Home
+rule_69:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.Local = false
+rule_70:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.Local = false
+rule_71:   Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.Dir.Local = false
+rule_72:   Sta.Dir.Local = true -> Sta.FwdCmd != UNI_GetX
+rule_73:   Sta.Dir.Pending = false -> Sta.FwdCmd != UNI_GetX
+rule_74:   Sta.Dir.InvSet[i] = true -> Sta.FwdCmd != UNI_GetX
+rule_75:   Sta.Dir.InvSet[j] = true -> Sta.FwdCmd != UNI_GetX
+rule_76:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.FwdCmd != UNI_GetX
+rule_77:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.FwdCmd != UNI_GetX
+rule_78:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.FwdCmd != UNI_GetX
+rule_79:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.FwdCmd != UNI_GetX
+rule_80:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.FwdCmd != UNI_GetX
+rule_81:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.FwdCmd != UNI_GetX
+rule_82:   Sta.Dir.Local = true -> Sta.WbMsg.Cmd != WB_Wb
+rule_83:   Sta.Dir.Dirty = false -> Sta.WbMsg.Cmd != WB_Wb
+rule_84:   Sta.Dir.HeadVld = false -> Sta.WbMsg.Cmd != WB_Wb
+rule_85:   Sta.Proc[i].CacheState = CACHE_E -> Sta.WbMsg.Cmd != WB_Wb
+rule_86:   Sta.Proc[j].CacheState = CACHE_E -> Sta.WbMsg.Cmd != WB_Wb
+rule_87:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.WbMsg.Cmd != WB_Wb
+rule_88:   Sta.Dir.HeadVld = false -> Sta.Dir.HeadPtr != i
+rule_89:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Dir.HeadPtr != i
+rule_90:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.HeadPtr != i
+rule_91:   Sta.Dir.Local = true & Sta.Dir.Dirty = true -> Sta.Dir.HeadPtr != i
+rule_92:   Sta.Dir.Local = true & Sta.Dir.Pending = true -> Sta.Dir.HeadPtr != i
+rule_93:   Sta.Dir.Pending = true & Sta.Dir.Dirty = false -> Sta.Dir.HeadPtr != i
+rule_94:   Sta.Dir.InvSet[i] = true & Sta.Dir.Dirty = true -> Sta.Dir.HeadPtr != i
+rule_95:   Sta.Dir.InvSet[i] = true & Sta.Dir.Pending = true -> Sta.Dir.HeadPtr != i
+rule_96:   Sta.Dir.HeadVld = false -> Sta.Dir.HeadPtr != j
+rule_97:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Dir.HeadPtr != j
+rule_98:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.HeadPtr != j
+rule_99:   Sta.Dir.Local = true & Sta.Dir.Dirty = true -> Sta.Dir.HeadPtr != j
+rule_100:   Sta.Dir.Local = true & Sta.Dir.Pending = true -> Sta.Dir.HeadPtr != j
+rule_101:   Sta.Dir.Pending = true & Sta.Dir.Dirty = false -> Sta.Dir.HeadPtr != j
+rule_102:   Sta.Dir.Dirty = true & Sta.Dir.InvSet[j] = true -> Sta.Dir.HeadPtr != j
+rule_103:   Sta.Dir.Pending = true & Sta.Dir.InvSet[j] = true -> Sta.Dir.HeadPtr != j
+rule_104:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Dir.Pending = true
+rule_105:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Dir.Pending = true
+rule_106:   Sta.Dir.InvSet[i] = true & Sta.Dir.Dirty = true -> Sta.Dir.Pending = true
+rule_107:   Sta.Dir.Dirty = true & Sta.Dir.InvSet[j] = true -> Sta.Dir.Pending = true
+rule_108:   Sta.Dir.Dirty = true -> Sta.Dir.ShrSet[i] = false
+rule_109:   Sta.Dir.Pending = true -> Sta.Dir.ShrSet[i] = false
+rule_110:   Sta.Dir.HeadVld = false -> Sta.Dir.ShrSet[i] = false
+rule_111:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Dir.ShrSet[i] = false
+rule_112:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Dir.ShrSet[i] = false
+rule_113:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.ShrSet[i] = false
+rule_114:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.ShrSet[i] = false
+rule_115:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.ShrSet[i] = false
+rule_116:   Sta.Dir.Dirty = true -> Sta.Dir.ShrSet[j] = false
+rule_117:   Sta.Dir.Pending = true -> Sta.Dir.ShrSet[j] = false
+rule_118:   Sta.Dir.HeadVld = false -> Sta.Dir.ShrSet[j] = false
+rule_119:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Dir.ShrSet[j] = false
+rule_120:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Dir.ShrSet[j] = false
+rule_121:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.ShrSet[j] = false
+rule_122:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.ShrSet[j] = false
+rule_123:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.ShrSet[j] = false
+rule_124:   Sta.Dir.Pending = false -> Sta.Collecting = false
+rule_125:   Sta.Dir.HeadPtr = i & Sta.Dir.Local = true -> Sta.Collecting = false
+rule_126:   Sta.Dir.Local = true & Sta.Dir.HeadPtr = j -> Sta.Collecting = false
+rule_127:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.Collecting = false
+rule_128:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.Collecting = false
+rule_129:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.Collecting = false
+rule_130:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.Collecting = false
+rule_131:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.HeadVld = false
+rule_132:   Sta.Dir.Local = true & Sta.Dir.Dirty = true -> Sta.Dir.HeadVld = false
+rule_133:   Sta.Dir.Local = true & Sta.Dir.Pending = true -> Sta.Dir.HeadVld = false
+rule_134:   Sta.Dir.Pending = true & Sta.Dir.Dirty = false -> Sta.Dir.HeadVld = false
+rule_135:   Sta.InvMsg[i].Cmd = INV_InvAck & Sta.Dir.Local = true -> Sta.Dir.HeadVld = false
+rule_136:   Sta.InvMsg[j].Cmd = INV_InvAck & Sta.Dir.Local = true -> Sta.Dir.HeadVld = false
+rule_137:   Sta.InvMsg[i].Cmd = INV_InvAck & Sta.Dir.Dirty = false -> Sta.Dir.HeadVld = false
+rule_138:   Sta.InvMsg[j].Cmd = INV_InvAck & Sta.Dir.Dirty = false -> Sta.Dir.HeadVld = false
+rule_139:   Sta.Dir.HeadPtr = i & Sta.Dir.Local = true -> Sta.Dir.Pending = false
+rule_140:   Sta.Dir.Local = true & Sta.Dir.HeadPtr = j -> Sta.Dir.Pending = false
+rule_141:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.Dir.Pending = false
+rule_142:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.Dir.Pending = false
+rule_143:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.Dir.Pending = false
+rule_144:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.Dir.Pending = false
+rule_145:   Sta.Dir.HeadPtr = i -> Sta.Dir.InvSet[Home] = false
+rule_146:   Sta.Dir.HeadPtr = j -> Sta.Dir.InvSet[Home] = false
+rule_147:   Sta.Dir.Dirty = true -> Sta.Dir.InvSet[Home] = false
+rule_148:   Sta.Dir.HeadPtr != i -> Sta.Dir.InvSet[Home] = false
+rule_149:   Sta.Dir.HeadPtr != j -> Sta.Dir.InvSet[Home] = false
+rule_150:   Sta.Dir.Local = true -> Sta.Dir.InvSet[Home] = false
+rule_151:   Sta.Dir.Dirty = false -> Sta.Dir.InvSet[Home] = false
+rule_152:   Sta.Dir.Local = false -> Sta.Dir.InvSet[Home] = false
+rule_153:   Sta.Dir.HeadVld = true -> Sta.Dir.InvSet[Home] = false
+rule_154:   Sta.Dir.Pending = true -> Sta.Dir.InvSet[Home] = false
+rule_155:   Sta.Dir.HeadPtr != Home -> Sta.Dir.InvSet[Home] = false
+rule_156:   Sta.Dir.HeadVld = false -> Sta.Dir.InvSet[Home] = false
+rule_157:   Sta.Dir.Pending = false -> Sta.Dir.InvSet[Home] = false
+rule_158:   Sta.Dir.InvSet[i] = true -> Sta.Dir.InvSet[Home] = false
+rule_159:   Sta.Dir.InvSet[j] = true -> Sta.Dir.InvSet[Home] = false
+rule_160:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Dir.InvSet[Home] = false
+rule_161:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Dir.InvSet[Home] = false
+rule_162:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Dir.InvSet[Home] = false
+rule_163:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Dir.InvSet[Home] = false
+rule_164:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Dir.InvSet[Home] = false
+rule_165:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Dir.InvSet[Home] = false
+rule_166:   Sta.RpMsg[i].Cmd != RP_Replace -> Sta.Dir.InvSet[Home] = false
+rule_167:   Sta.RpMsg[j].Cmd != RP_Replace -> Sta.Dir.InvSet[Home] = false
+rule_168:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.Dir.InvSet[Home] = false
+rule_169:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.Dir.InvSet[Home] = false
+rule_170:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.InvSet[Home] = false
+rule_171:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.InvSet[Home] = false
+rule_172:   Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.Dir.InvSet[Home] = false
+rule_173:   Sta.Proc[i].CacheState != CACHE_E -> Sta.Dir.InvSet[Home] = false
+rule_174:   Sta.Proc[j].CacheState != CACHE_E -> Sta.Dir.InvSet[Home] = false
+rule_175:   Sta.Proc[Home].ProcCmd != NODE_Get -> Sta.Dir.InvSet[Home] = false
+rule_176:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Dir.InvSet[Home] = false
+rule_177:   Sta.Dir.HeadPtr = i -> Sta.InvMsg[i].Cmd != INV_Inv
+rule_178:   Sta.Dir.Pending = false -> Sta.InvMsg[i].Cmd != INV_Inv
+rule_179:   Sta.Proc[i].CacheState = CACHE_E -> Sta.InvMsg[i].Cmd != INV_Inv
+rule_180:   Sta.Dir.Local = true & Sta.Dir.HeadPtr = j -> Sta.InvMsg[i].Cmd != INV_Inv
+rule_181:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.InvMsg[i].Cmd != INV_Inv
+rule_182:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.InvMsg[i].Cmd != INV_Inv
+rule_183:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.InvMsg[i].Cmd != INV_Inv
+rule_184:   Sta.Dir.HeadPtr = j -> Sta.InvMsg[j].Cmd != INV_Inv
+rule_185:   Sta.Dir.Pending = false -> Sta.InvMsg[j].Cmd != INV_Inv
+rule_186:   Sta.Proc[j].CacheState = CACHE_E -> Sta.InvMsg[j].Cmd != INV_Inv
+rule_187:   Sta.Dir.HeadPtr = i & Sta.Dir.Local = true -> Sta.InvMsg[j].Cmd != INV_Inv
+rule_188:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.InvMsg[j].Cmd != INV_Inv
+rule_189:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.InvMsg[j].Cmd != INV_Inv
+rule_190:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.InvMsg[j].Cmd != INV_Inv
+rule_191:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Dir.InvSet[i] = true
+rule_192:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Dir.InvSet[j] = true
+rule_193:   Sta.Dir.Local = true -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_194:   Sta.Dir.Pending = false -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_195:   Sta.Dir.InvSet[i] = true -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_196:   Sta.Dir.InvSet[j] = true -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_197:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_198:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_199:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_200:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_201:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_202:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.ShWbMsg.Cmd != SHWB_FAck
+rule_203:   Sta.Dir.Local = true -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_204:   Sta.Dir.Dirty = false -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_205:   Sta.Dir.HeadVld = false -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_206:   Sta.Dir.Pending = false -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_207:   Sta.Dir.InvSet[i] = true -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_208:   Sta.Dir.InvSet[j] = true -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_209:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_210:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_211:   Sta.Proc[i].CacheState = CACHE_E -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_212:   Sta.Proc[j].CacheState = CACHE_E -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_213:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.ShWbMsg.Cmd != SHWB_ShWb
+rule_214:   Sta.Dir.Local = true -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_215:   Sta.Dir.Dirty = false -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_216:   Sta.Dir.HeadVld = false -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_217:   Sta.Dir.InvSet[i] = true -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_218:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_219:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_220:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_221:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_222:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_223:   Sta.Dir.HeadPtr = j & Sta.Dir.Pending = false -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_224:   Sta.Dir.HeadPtr != i & Sta.Dir.Pending = false -> Sta.UniMsg[i].Cmd != UNI_PutX
+rule_225:   Sta.Dir.Local = true -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_226:   Sta.Dir.Dirty = false -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_227:   Sta.Dir.HeadVld = false -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_228:   Sta.Dir.InvSet[j] = true -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_229:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_230:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_231:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_232:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_233:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_234:   Sta.Dir.HeadPtr = i & Sta.Dir.Pending = false -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_235:   Sta.Dir.HeadPtr != j & Sta.Dir.Pending = false -> Sta.UniMsg[j].Cmd != UNI_PutX
+rule_236:   Sta.Dir.HeadPtr = i -> Sta.InvMsg[i].Cmd != INV_InvAck
+rule_237:   Sta.Dir.Pending = false -> Sta.InvMsg[i].Cmd != INV_InvAck
+rule_238:   Sta.Proc[i].CacheState = CACHE_E -> Sta.InvMsg[i].Cmd != INV_InvAck
+rule_239:   Sta.Dir.Local = true & Sta.Dir.HeadPtr = j -> Sta.InvMsg[i].Cmd != INV_InvAck
+rule_240:   Sta.Dir.HeadPtr = j & Sta.Dir.Dirty = false -> Sta.InvMsg[i].Cmd != INV_InvAck
+rule_241:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.InvMsg[i].Cmd != INV_InvAck
+rule_242:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.InvMsg[i].Cmd != INV_InvAck
+rule_243:   Sta.Dir.HeadPtr = j -> Sta.InvMsg[j].Cmd != INV_InvAck
+rule_244:   Sta.Dir.Pending = false -> Sta.InvMsg[j].Cmd != INV_InvAck
+rule_245:   Sta.Proc[j].CacheState = CACHE_E -> Sta.InvMsg[j].Cmd != INV_InvAck
+rule_246:   Sta.Dir.HeadPtr = i & Sta.Dir.Local = true -> Sta.InvMsg[j].Cmd != INV_InvAck
+rule_247:   Sta.Dir.HeadPtr = i & Sta.Dir.Dirty = false -> Sta.InvMsg[j].Cmd != INV_InvAck
+rule_248:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.InvMsg[j].Cmd != INV_InvAck
+rule_249:   Sta.Dir.HeadVld = true & Sta.Dir.Dirty = false -> Sta.InvMsg[j].Cmd != INV_InvAck
+rule_250:   Sta.Dir.HeadPtr = i -> Sta.Proc[Home].InvMarked = false
+rule_251:   Sta.Dir.HeadPtr = j -> Sta.Proc[Home].InvMarked = false
+rule_252:   Sta.Dir.Dirty = true -> Sta.Proc[Home].InvMarked = false
+rule_253:   Sta.Dir.HeadPtr != i -> Sta.Proc[Home].InvMarked = false
+rule_254:   Sta.Dir.HeadPtr != j -> Sta.Proc[Home].InvMarked = false
+rule_255:   Sta.Dir.Local = true -> Sta.Proc[Home].InvMarked = false
+rule_256:   Sta.Dir.Dirty = false -> Sta.Proc[Home].InvMarked = false
+rule_257:   Sta.Dir.Local = false -> Sta.Proc[Home].InvMarked = false
+rule_258:   Sta.Dir.HeadVld = true -> Sta.Proc[Home].InvMarked = false
+rule_259:   Sta.Dir.Pending = true -> Sta.Proc[Home].InvMarked = false
+rule_260:   Sta.Dir.HeadPtr != Home -> Sta.Proc[Home].InvMarked = false
+rule_261:   Sta.Dir.HeadVld = false -> Sta.Proc[Home].InvMarked = false
+rule_262:   Sta.Dir.Pending = false -> Sta.Proc[Home].InvMarked = false
+rule_263:   Sta.Dir.InvSet[i] = true -> Sta.Proc[Home].InvMarked = false
+rule_264:   Sta.Dir.InvSet[j] = true -> Sta.Proc[Home].InvMarked = false
+rule_265:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Proc[Home].InvMarked = false
+rule_266:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Proc[Home].InvMarked = false
+rule_267:   Sta.Dir.InvSet[Home] = false -> Sta.Proc[Home].InvMarked = false
+rule_268:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[Home].InvMarked = false
+rule_269:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[Home].InvMarked = false
+rule_270:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Proc[Home].InvMarked = false
+rule_271:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Proc[Home].InvMarked = false
+rule_272:   Sta.RpMsg[i].Cmd != RP_Replace -> Sta.Proc[Home].InvMarked = false
+rule_273:   Sta.RpMsg[j].Cmd != RP_Replace -> Sta.Proc[Home].InvMarked = false
+rule_274:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.Proc[Home].InvMarked = false
+rule_275:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.Proc[Home].InvMarked = false
+rule_276:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[Home].InvMarked = false
+rule_277:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[Home].InvMarked = false
+rule_278:   Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.Proc[Home].InvMarked = false
+rule_279:   Sta.Proc[i].CacheState != CACHE_E -> Sta.Proc[Home].InvMarked = false
+rule_280:   Sta.Proc[j].CacheState != CACHE_E -> Sta.Proc[Home].InvMarked = false
+rule_281:   Sta.Proc[Home].ProcCmd != NODE_Get -> Sta.Proc[Home].InvMarked = false
+rule_282:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Proc[Home].InvMarked = false
+rule_283:   Sta.Dir.Local = true -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_284:   Sta.Dir.Dirty = false -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_285:   Sta.Dir.HeadVld = false -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_286:   Sta.Dir.Pending = false -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_287:   Sta.Dir.InvSet[i] = true -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_288:   Sta.Dir.InvSet[j] = true -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_289:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_290:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_291:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_292:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_293:   Sta.Proc[Home].ProcCmd != NODE_Get -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_294:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.UniMsg[Home].Cmd != UNI_Put
+rule_295:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Collecting = true
+rule_296:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Collecting = true
+rule_297:   Sta.Dir.Local = true & Sta.Dir.Pending = true -> Sta.Collecting = true
+rule_298:   Sta.Dir.InvSet[i] = true & Sta.Dir.Dirty = true -> Sta.Collecting = true
+rule_299:   Sta.Dir.Dirty = true & Sta.Dir.InvSet[j] = true -> Sta.Collecting = true
+rule_300:   Sta.Dir.InvSet[i] = true & Sta.Dir.Pending = true -> Sta.Collecting = true
+rule_301:   Sta.Dir.Pending = true & Sta.Dir.InvSet[j] = true -> Sta.Collecting = true
+rule_302:   Sta.Dir.Local = true -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_303:   Sta.Dir.Dirty = false -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_304:   Sta.Dir.HeadVld = false -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_305:   Sta.Dir.Pending = false -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_306:   Sta.Dir.InvSet[i] = true -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_307:   Sta.Dir.InvSet[j] = true -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_308:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_309:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_310:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_311:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_312:   Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_313:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.UniMsg[Home].Cmd != UNI_PutX
+rule_314:   Sta.Dir.Local = true -> Sta.Proc[i].CacheState != CACHE_E
+rule_315:   Sta.Dir.Dirty = false -> Sta.Proc[i].CacheState != CACHE_E
+rule_316:   Sta.Dir.HeadVld = false -> Sta.Proc[i].CacheState != CACHE_E
+rule_317:   Sta.Dir.InvSet[i] = true -> Sta.Proc[i].CacheState != CACHE_E
+rule_318:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Proc[i].CacheState != CACHE_E
+rule_319:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[i].CacheState != CACHE_E
+rule_320:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Proc[i].CacheState != CACHE_E
+rule_321:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[i].CacheState != CACHE_E
+rule_322:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Proc[i].CacheState != CACHE_E
+rule_323:   Sta.Dir.HeadPtr = j & Sta.Dir.Pending = false -> Sta.Proc[i].CacheState != CACHE_E
+rule_324:   Sta.Dir.HeadPtr != i & Sta.Dir.Pending = false -> Sta.Proc[i].CacheState != CACHE_E
+rule_325:   Sta.Dir.Local = true -> Sta.Proc[j].CacheState != CACHE_E
+rule_326:   Sta.Dir.Dirty = false -> Sta.Proc[j].CacheState != CACHE_E
+rule_327:   Sta.Dir.HeadVld = false -> Sta.Proc[j].CacheState != CACHE_E
+rule_328:   Sta.Dir.InvSet[j] = true -> Sta.Proc[j].CacheState != CACHE_E
+rule_329:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Proc[j].CacheState != CACHE_E
+rule_330:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[j].CacheState != CACHE_E
+rule_331:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Proc[j].CacheState != CACHE_E
+rule_332:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[j].CacheState != CACHE_E
+rule_333:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Proc[j].CacheState != CACHE_E
+rule_334:   Sta.Dir.HeadPtr = i & Sta.Dir.Pending = false -> Sta.Proc[j].CacheState != CACHE_E
+rule_335:   Sta.Dir.HeadPtr != j & Sta.Dir.Pending = false -> Sta.Proc[j].CacheState != CACHE_E
+rule_336:   Sta.Dir.Local = true -> Sta.Proc[Home].ProcCmd != NODE_Get
+rule_337:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Proc[Home].ProcCmd != NODE_Get
+rule_338:   Sta.Dir.Local = true -> Sta.Proc[Home].ProcCmd = NODE_None
+rule_339:   Sta.Proc[Home].CacheState = CACHE_E -> Sta.Proc[Home].ProcCmd = NODE_None
+rule_340:   Sta.Dir.HeadPtr = i -> Sta.Proc[Home].CacheState != CACHE_E
+rule_341:   Sta.Dir.HeadPtr = j -> Sta.Proc[Home].CacheState != CACHE_E
+rule_342:   Sta.Dir.Dirty = false -> Sta.Proc[Home].CacheState != CACHE_E
+rule_343:   Sta.Dir.Local = false -> Sta.Proc[Home].CacheState != CACHE_E
+rule_344:   Sta.Dir.HeadVld = true -> Sta.Proc[Home].CacheState != CACHE_E
+rule_345:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[Home].CacheState != CACHE_E
+rule_346:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[Home].CacheState != CACHE_E
+rule_347:   Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.Proc[Home].CacheState != CACHE_E
+rule_348:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[i].Proc != j
+rule_349:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[j].Proc != i
+rule_350:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.UniMsg[i].Cmd != UNI_Nak
+rule_351:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[i].Cmd != UNI_Nak
+rule_352:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.UniMsg[i].Cmd != UNI_Put
+rule_353:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[i].Cmd != UNI_Put
+rule_354:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.UniMsg[j].Cmd != UNI_Nak
+rule_355:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[j].Cmd != UNI_Nak
+rule_356:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.UniMsg[j].Cmd != UNI_Put
+rule_357:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[j].Cmd != UNI_Put
+rule_358:   Sta.Dir.Dirty = true -> Sta.Proc[Home].CacheState != CACHE_S
+rule_359:   Sta.Dir.Local = false -> Sta.Proc[Home].CacheState != CACHE_S
+rule_360:   Sta.Dir.Pending = true -> Sta.Proc[Home].CacheState != CACHE_S
+rule_361:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Proc[Home].CacheState != CACHE_S
+rule_362:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Proc[Home].CacheState != CACHE_S
+rule_363:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[Home].CacheState != CACHE_S
+rule_364:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[Home].CacheState != CACHE_S
+rule_365:   Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.Proc[Home].CacheState != CACHE_S
+rule_366:   Sta.Dir.Local = false -> Sta.Proc[Home].CacheState = CACHE_I
+rule_367:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[Home].CacheState = CACHE_I
+rule_368:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[Home].CacheState = CACHE_I
+rule_369:   Sta.Proc[Home].ProcCmd = NODE_Get -> Sta.Proc[Home].CacheState = CACHE_I
+rule_370:   Sta.Dir.Pending = true & Sta.Dir.Dirty = false -> Sta.Proc[Home].CacheState = CACHE_I
+rule_371:   Sta.InvMsg[i].Cmd = INV_InvAck & Sta.Dir.Dirty = false -> Sta.Proc[Home].CacheState = CACHE_I
+rule_372:   Sta.InvMsg[j].Cmd = INV_InvAck & Sta.Dir.Dirty = false -> Sta.Proc[Home].CacheState = CACHE_I
+rule_373:   Sta.Proc[i].CacheState = CACHE_E -> Sta.ShWbMsg.Proc != Home
+rule_374:   Sta.Proc[j].CacheState = CACHE_E -> Sta.ShWbMsg.Proc != Home
+rule_375:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.UniMsg[i].Cmd != UNI_GetX
+rule_376:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[i].Cmd != UNI_GetX
+rule_377:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.UniMsg[i].Cmd != UNI_Get
+rule_378:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[i].Cmd != UNI_Get
+rule_379:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.UniMsg[j].Cmd != UNI_GetX
+rule_380:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[j].Cmd != UNI_GetX
+rule_381:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.UniMsg[j].Cmd != UNI_Get
+rule_382:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[j].Cmd != UNI_Get
+rule_383:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Dir.InvSet[i] = false
+rule_384:   Sta.Dir.Dirty = true & Sta.Dir.Pending = false -> Sta.Dir.InvSet[i] = false
+rule_385:   Sta.Dir.HeadVld = false & Sta.Dir.Pending = false -> Sta.Dir.InvSet[i] = false
+rule_386:   Sta.Proc[Home].CacheState = CACHE_E & Sta.Dir.Pending = false -> Sta.Dir.InvSet[i] = false
+rule_387:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Dir.InvSet[j] = false
+rule_388:   Sta.Dir.Dirty = true & Sta.Dir.Pending = false -> Sta.Dir.InvSet[j] = false
+rule_389:   Sta.Dir.HeadVld = false & Sta.Dir.Pending = false -> Sta.Dir.InvSet[j] = false
+rule_390:   Sta.Proc[Home].CacheState = CACHE_E & Sta.Dir.Pending = false -> Sta.Dir.InvSet[j] = false
+rule_391:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Proc[i].ProcCmd = NODE_Get
+rule_392:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[i].InvMarked = false
+rule_393:   Sta.Proc[i].ProcCmd = NODE_None -> Sta.Proc[i].InvMarked = false
+rule_394:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[i].InvMarked = false
+rule_395:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Proc[j].ProcCmd = NODE_Get
+rule_396:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[j].InvMarked = false
+rule_397:   Sta.Proc[j].ProcCmd = NODE_None -> Sta.Proc[j].InvMarked = false
+rule_398:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[j].InvMarked = false
+rule_399:   Sta.Proc[i].CacheState = CACHE_E -> Sta.UniMsg[i].Proc != Home
+rule_400:   Sta.Proc[j].CacheState = CACHE_E -> Sta.UniMsg[j].Proc != Home
+rule_401:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Proc[i].CacheState = CACHE_I
+rule_402:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[i].CacheState = CACHE_I
+rule_403:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Proc[i].CacheState = CACHE_I
+rule_404:   Sta.Dir.HeadVld = false & Sta.Dir.Pending = false -> Sta.Proc[i].CacheState = CACHE_I
+rule_405:   Sta.Proc[Home].CacheState = CACHE_E & Sta.Dir.Pending = false -> Sta.Proc[i].CacheState = CACHE_I
+rule_406:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Proc[i].ProcCmd != NODE_GetX
+rule_407:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[i].ProcCmd != NODE_GetX
+rule_408:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Proc[i].ProcCmd != NODE_None
+rule_409:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[i].ProcCmd != NODE_None
+rule_410:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[i].ProcCmd != NODE_Get
+rule_411:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[i].ProcCmd != NODE_Get
+rule_412:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[i].ProcCmd = NODE_GetX
+rule_413:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Proc[j].CacheState = CACHE_I
+rule_414:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[j].CacheState = CACHE_I
+rule_415:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Proc[j].CacheState = CACHE_I
+rule_416:   Sta.Dir.HeadVld = false & Sta.Dir.Pending = false -> Sta.Proc[j].CacheState = CACHE_I
+rule_417:   Sta.Proc[Home].CacheState = CACHE_E & Sta.Dir.Pending = false -> Sta.Proc[j].CacheState = CACHE_I
+rule_418:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Proc[j].ProcCmd != NODE_GetX
+rule_419:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[j].ProcCmd != NODE_GetX
+rule_420:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Proc[j].ProcCmd != NODE_None
+rule_421:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[j].ProcCmd != NODE_None
+rule_422:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[j].ProcCmd != NODE_Get
+rule_423:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[j].ProcCmd != NODE_Get
+rule_424:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[j].ProcCmd = NODE_GetX
+rule_425:   Sta.UniMsg[i].Cmd = UNI_Get -> Sta.Proc[i].CacheState != CACHE_S
+rule_426:   Sta.UniMsg[i].Cmd = UNI_GetX -> Sta.Proc[i].CacheState != CACHE_S
+rule_427:   Sta.InvMsg[i].Cmd = INV_InvAck -> Sta.Proc[i].CacheState != CACHE_S
+rule_428:   Sta.Dir.Dirty = true & Sta.Dir.Pending = false -> Sta.Proc[i].CacheState != CACHE_S
+rule_429:   Sta.Dir.HeadVld = false & Sta.Dir.Pending = false -> Sta.Proc[i].CacheState != CACHE_S
+rule_430:   Sta.Proc[Home].CacheState = CACHE_E & Sta.Dir.Pending = false -> Sta.Proc[i].CacheState != CACHE_S
+rule_431:   Sta.UniMsg[j].Cmd = UNI_Get -> Sta.Proc[j].CacheState != CACHE_S
+rule_432:   Sta.UniMsg[j].Cmd = UNI_GetX -> Sta.Proc[j].CacheState != CACHE_S
+rule_433:   Sta.InvMsg[j].Cmd = INV_InvAck -> Sta.Proc[j].CacheState != CACHE_S
+rule_434:   Sta.Dir.Dirty = true & Sta.Dir.Pending = false -> Sta.Proc[j].CacheState != CACHE_S
+rule_435:   Sta.Dir.HeadVld = false & Sta.Dir.Pending = false -> Sta.Proc[j].CacheState != CACHE_S
+rule_436:   Sta.Proc[Home].CacheState = CACHE_E & Sta.Dir.Pending = false -> Sta.Proc[j].CacheState != CACHE_S
+rule_437:   Sta.Proc[i].CacheState = CACHE_E -> Sta.Proc[i].ProcCmd = NODE_None
+rule_438:   Sta.Proc[j].CacheState = CACHE_E -> Sta.Proc[j].ProcCmd = NODE_None
+rule_439:   Sta.Dir.HeadPtr = i & Sta.Dir.Local = true -> Sta.Proc[Home].CacheState != CACHE_I
+rule_440:   Sta.Dir.Local = true & Sta.Dir.HeadPtr = j -> Sta.Proc[Home].CacheState != CACHE_I
+rule_441:   Sta.Dir.Local = true & Sta.Dir.Dirty = true -> Sta.Proc[Home].CacheState != CACHE_I
+rule_442:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.Proc[Home].CacheState != CACHE_I
+rule_443:   Sta.Dir.Local = true & Sta.Dir.Pending = false -> Sta.Proc[Home].CacheState != CACHE_I
+rule_444:   Sta.InvMsg[i].Cmd = INV_InvAck & Sta.Dir.Local = false -> Sta.PendReqSrc != i
+rule_445:   Sta.InvMsg[j].Cmd = INV_InvAck & Sta.Dir.Local = false -> Sta.PendReqSrc != j
+rule_446:   Sta.Dir.HeadPtr = i & Sta.Dir.Local = true -> Sta.Proc[Home].CacheState = CACHE_S
+rule_447:   Sta.Dir.Local = true & Sta.Dir.HeadPtr = j -> Sta.Proc[Home].CacheState = CACHE_S
+rule_448:   Sta.Dir.HeadVld = true & Sta.Dir.Local = true -> Sta.Proc[Home].CacheState = CACHE_S
+rule_449:   Sta.Dir.Local = true & Sta.Dir.Dirty = true -> Sta.Proc[Home].CacheState = CACHE_E

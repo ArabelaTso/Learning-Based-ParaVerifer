@@ -1,0 +1,369 @@
+rule_1:   Chan2[i].Cmd = Inv & Cache[i].State = E -> ShrSet[i] = true
+rule_2:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan1[i].Cmd != ReqS
+rule_3:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan3[j].Cmd != InvAck
+rule_4:   ExGntd = true & InvSet[i] = true -> Chan3[j].Cmd != InvAck
+rule_5:   Chan3[i].Cmd = InvAck -> CurCmd != Empty
+rule_6:   Chan2[i].Cmd = GntE -> Chan3[j].Cmd != InvAck
+rule_7:   CurCmd = ReqE & Chan2[i].Cmd = Empty -> CurCmd != ReqS
+rule_8:   ExGntd = true & CurCmd = ReqS -> Chan2[j].Cmd != GntS
+rule_9:   InvSet[i] = true -> Chan3[i].Cmd != InvAck
+rule_10:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan3[j].Cmd = Empty
+rule_11:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> CurCmd != ReqE
+rule_12:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan3[j].Cmd = Empty
+rule_13:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Cache[i].State != I
+rule_14:   Cache[i].State = I -> Cache[i].State != S
+rule_15:   CurCmd = ReqE & ExGntd = false -> MemData = AuxData
+rule_16:   Cache[i].State = S -> Cache[i].State != E
+rule_17:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Cache[i].Data = AuxData
+rule_18:   CurCmd = Empty -> CurCmd != ReqE
+rule_19:   ExGntd = true & Chan2[i].Cmd = Empty -> Chan2[i].Cmd != GntE
+rule_20:   InvSet[i] = true -> ShrSet[i] = true
+rule_21:   ExGntd = false & CurCmd = ReqS -> MemData = AuxData
+rule_22:   ExGntd = true & InvSet[i] = true -> CurCmd != Empty
+rule_23:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan2[j].Cmd != Inv
+rule_24:   CurCmd = ReqE -> CurCmd != ReqS
+rule_25:   ExGntd = true & Chan2[i].Cmd = Empty -> Cache[j].State != S
+rule_26:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan2[j].Cmd != GntE
+rule_27:   CurCmd = Empty -> Chan3[j].Cmd != InvAck
+rule_28:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Cache[i].State != E
+rule_29:   Cache[i].State = E -> Cache[j].State != S
+rule_30:   Chan2[i].Cmd = Empty & ExGntd = false -> Cache[i].State != E
+rule_31:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan3[j].Cmd != InvAck
+rule_32:   Chan2[i].Cmd = GntS -> Chan2[i].Data = AuxData
+rule_33:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[j].Cmd != GntE
+rule_34:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[i].Cmd = Empty
+rule_35:   ExGntd = false -> Cache[i].State != E
+rule_36:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Chan2[j].Cmd != GntE
+rule_37:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Cache[j].State = I
+rule_38:   Chan2[i].Cmd = GntS -> ExGntd = false
+rule_39:   InvSet[i] = true & CurCmd = ReqS -> Chan2[j].Cmd != Inv
+rule_40:   ExGntd = true & Chan3[i].Cmd = InvAck -> ShrSet[i] = true
+rule_41:   Chan2[i].Cmd = Inv & Cache[i].State = E -> InvSet[i] = false
+rule_42:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Chan2[j].Cmd != GntE
+rule_43:   CurCmd = ReqE & InvSet[i] = true -> CurCmd != Empty
+rule_44:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Chan2[i].Cmd != GntE
+rule_45:   ExGntd = false & CurCmd = ReqS -> CurCmd != Empty
+rule_46:   CurCmd = ReqE & ExGntd = false -> Cache[i].State != E
+rule_47:   Cache[i].State = E -> Chan3[i].Cmd != InvAck
+rule_48:   ExGntd = true & Chan3[i].Cmd = InvAck -> CurCmd != Empty
+rule_49:   Chan2[i].Cmd = Inv -> Chan2[i].Cmd != GntE
+rule_50:   ExGntd = false & CurCmd = ReqS -> Cache[i].State != E
+rule_51:   Cache[i].State = S -> ExGntd = false
+rule_52:   Chan2[i].Cmd = GntE -> Chan2[i].Cmd != GntS
+rule_53:   Chan2[i].Cmd = GntE -> Chan2[i].Data = AuxData
+rule_54:   Cache[i].State = E -> Cache[i].State != S
+rule_55:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Chan3[i].Cmd = Empty
+rule_56:   Chan3[i].Cmd = InvAck -> Chan2[i].Cmd = Empty
+rule_57:   CurCmd = ReqE & InvSet[i] = true -> ShrSet[i] = true
+rule_58:   ExGntd = true & InvSet[i] = true -> Cache[j].State != S
+rule_59:   Chan2[i].Cmd = GntS -> ShrSet[i] = true
+rule_60:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Chan3[i].Cmd != InvAck
+rule_61:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Cache[j].State = I
+rule_62:   Chan2[i].Cmd = GntE -> Chan2[j].Cmd != GntE
+rule_63:   Chan3[i].Cmd = Empty & Cache[i].State = E -> ExGntd = true
+rule_64:   InvSet[i] = true -> Chan3[i].Cmd = Empty
+rule_65:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan2[j].Cmd != GntS
+rule_66:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan2[i].Cmd != Inv
+rule_67:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Cache[i].State != I
+rule_68:   Cache[i].State = E -> Cache[j].State = I
+rule_69:   Chan2[i].Cmd = Inv & Cache[i].State = E -> InvSet[j] = false
+rule_70:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Chan3[i].Cmd != InvAck
+rule_71:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan2[i].Cmd != GntE
+rule_72:   CurCmd = ReqE & InvSet[i] = true -> Chan3[i].Cmd != InvAck
+rule_73:   Chan2[i].Cmd = GntE -> Chan3[j].Cmd = Empty
+rule_74:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Chan3[i].Cmd != InvAck
+rule_75:   Chan2[i].Cmd = GntE -> Cache[i].State = I
+rule_76:   CurCmd = ReqE & Chan2[i].Cmd = Empty -> Chan2[i].Cmd != GntE
+rule_77:   ExGntd = false & CurCmd = ReqS -> Chan3[i].Cmd = Empty
+rule_78:   Chan3[i].Cmd = InvAck -> Cache[i].State != S
+rule_79:   Chan2[i].Cmd = Inv -> Chan3[i].Cmd != InvAck
+rule_80:   ExGntd = false & CurCmd = ReqS -> CurCmd != ReqE
+rule_81:   CurCmd = Empty -> Chan3[j].Cmd = Empty
+rule_82:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan3[i].Data = AuxData
+rule_83:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan3[j].Cmd != InvAck
+rule_84:   Chan2[i].Cmd = Empty & CurCmd = ReqS -> Chan2[i].Cmd != GntS
+rule_85:   Cache[i].State = S -> Chan3[i].Cmd != InvAck
+rule_86:   Cache[i].State = E -> Chan2[i].Cmd != GntE
+rule_87:   Chan2[i].Cmd = Inv -> InvSet[i] = false
+rule_88:   Chan2[i].Cmd = GntE -> MemData = AuxData
+rule_89:   Cache[i].State != E & Chan2[i].Cmd = Inv -> InvSet[i] = false
+rule_90:   Chan3[i].Cmd = InvAck -> ShrSet[i] = true
+rule_91:   CurCmd = ReqE & InvSet[i] = true -> Chan2[j].Cmd != GntE
+rule_92:   ExGntd = false -> Chan2[j].Cmd != GntE
+rule_93:   ExGntd = true & InvSet[i] = true -> Chan2[j].Cmd != Inv
+rule_94:   ExGntd = true & InvSet[i] = true -> Cache[j].State != E
+rule_95:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Chan3[i].Cmd = Empty
+rule_96:   Chan1[i].Cmd = Empty -> Chan1[i].Cmd != ReqE
+rule_97:   CurCmd = Empty -> Chan2[i].Cmd != GntE
+rule_98:   Chan2[i].Cmd = GntE -> Chan2[i].Cmd != Empty
+rule_99:   CurCmd = ReqE & Chan2[i].Cmd = Empty -> Chan2[i].Cmd != Inv
+rule_100:   Chan3[i].Cmd = InvAck -> Cache[j].State != E
+rule_101:   ExGntd = true & Chan3[i].Cmd = InvAck -> Cache[i].State != S
+rule_102:   Cache[i].State = I -> Cache[i].State != E
+rule_103:   Chan3[i].Cmd = InvAck -> Cache[i].State = I
+rule_104:   CurCmd = Empty -> Chan2[i].Cmd != Inv
+rule_105:   ExGntd = true & CurCmd = ReqS -> Cache[j].State != S
+rule_106:   Cache[i].State = E -> Chan2[j].Cmd != Inv
+rule_107:   Cache[i].State = S -> Cache[i].Data = AuxData
+rule_108:   Chan2[i].Cmd = Empty & CurCmd = ReqS -> CurCmd != ReqE
+rule_109:   Cache[i].State = E -> Chan3[j].Cmd = Empty
+rule_110:   Chan2[i].Cmd = Empty & ExGntd = false -> Cache[j].State != E
+rule_111:   Cache[i].State = E -> CurCmd != Empty
+rule_112:   ExGntd = false & CurCmd = ReqS -> Cache[j].State != E
+rule_113:   Chan2[i].Cmd = Empty & CurCmd = ReqS -> Chan2[i].Cmd != GntE
+rule_114:   ExGntd = true & Chan2[i].Cmd = Empty -> Chan2[j].Cmd != GntS
+rule_115:   Chan1[i].Cmd = Empty & Cache[i].State = S -> MemData = AuxData
+rule_116:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Cache[j].State != S
+rule_117:   ExGntd = false & CurCmd = ReqS -> Chan3[i].Cmd != InvAck
+rule_118:   Cache[i].State = E -> InvSet[j] = false
+rule_119:   CurCmd = Empty -> CurCmd != ReqS
+rule_120:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Chan2[i].Cmd != Inv
+rule_121:   Chan2[i].Cmd = GntE -> ShrSet[i] = true
+rule_122:   Chan1[i].Cmd = Empty -> Chan1[i].Cmd != ReqS
+rule_123:   Chan2[i].Cmd = GntE -> Chan3[i].Cmd != InvAck
+rule_124:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Cache[j].State != E
+rule_125:   CurCmd = Empty -> Cache[i].State != E
+rule_126:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan2[i].Cmd != Empty
+rule_127:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Cache[i].State != S
+rule_128:   Cache[i].State = E -> ShrSet[i] = true
+rule_129:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> CurCmd != Empty
+rule_130:   Chan3[i].Cmd = InvAck -> Chan2[i].Cmd != Inv
+rule_131:   Cache[i].State = I & Chan1[i].Cmd = Empty -> Chan1[i].Cmd != ReqE
+rule_132:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Cache[i].State != S
+rule_133:   Cache[i].State = E -> Chan3[i].Cmd = Empty
+rule_134:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan3[i].Cmd = Empty
+rule_135:   Cache[i].State = I & Chan1[i].Cmd = Empty -> Chan1[i].Cmd != ReqS
+rule_136:   Chan2[i].Cmd = GntE -> Cache[i].State != E
+rule_137:   ExGntd = false & CurCmd = ReqS -> Chan3[j].Cmd = Empty
+rule_138:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[i].Cmd != GntS
+rule_139:   ExGntd = true & InvSet[i] = true -> Chan3[i].Cmd = Empty
+rule_140:   Cache[i].State != E & Chan2[i].Cmd = Inv -> ShrSet[i] = true
+rule_141:   Cache[i].State = I & Chan1[i].Cmd = Empty -> Cache[i].State != E
+rule_142:   Chan2[i].Cmd = Inv -> Chan2[i].Cmd != GntS
+rule_143:   Chan3[i].Cmd = Empty & Cache[i].State = E -> ShrSet[j] = false
+rule_144:   CurCmd = ReqE & InvSet[i] = true -> Chan2[i].Cmd != Inv
+rule_145:   Chan2[i].Cmd = Inv -> CurCmd != Empty
+rule_146:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan3[j].Cmd != InvAck
+rule_147:   Chan2[i].Cmd = GntE -> ExGntd = true
+rule_148:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan2[j].Cmd != Inv
+rule_149:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan3[i].Cmd != InvAck
+rule_150:   Chan2[i].Cmd = GntS -> Chan3[i].Cmd = Empty
+rule_151:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Chan2[j].Cmd != GntE
+rule_152:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Cache[i].State != E
+rule_153:   Chan3[i].Cmd = InvAck -> Chan2[i].Cmd != GntS
+rule_154:   CurCmd = ReqE & ExGntd = false -> CurCmd != ReqS
+rule_155:   CurCmd = ReqE & InvSet[i] = true -> Chan3[i].Cmd = Empty
+rule_156:   Chan3[i].Cmd = Empty & Cache[i].State != E -> Chan3[i].Cmd != InvAck
+rule_157:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan3[j].Cmd = Empty
+rule_158:   ExGntd = true & CurCmd = ReqS -> CurCmd != ReqE
+rule_159:   Chan1[i].Cmd = ReqE -> Chan1[i].Cmd != Empty
+rule_160:   Chan2[i].Cmd = GntE -> Cache[j].State = I
+rule_161:   Chan2[i].Cmd = GntE -> Chan2[i].Cmd != Inv
+rule_162:   Chan2[i].Cmd = GntE -> Cache[j].State != E
+rule_163:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[j].Cmd = Empty
+rule_164:   ExGntd = true & InvSet[i] = true -> ShrSet[i] = true
+rule_165:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan2[i].Cmd != GntE
+rule_166:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Cache[i].State = S
+rule_167:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Chan2[i].Cmd != GntE
+rule_168:   CurCmd = ReqE & ExGntd = false -> CurCmd != Empty
+rule_169:   Chan2[i].Cmd = GntS -> Chan2[i].Cmd != Inv
+rule_170:   Cache[i].State != E & Chan2[i].Cmd = Inv -> CurCmd != Empty
+rule_171:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Cache[j].State != E
+rule_172:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Chan1[i].Cmd != ReqE
+rule_173:   ExGntd = true & Chan3[i].Cmd = InvAck -> Cache[i].State != E
+rule_174:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> ShrSet[i] = true
+rule_175:   Cache[i].State = E -> Cache[i].Data = AuxData
+rule_176:   Cache[i].State = S -> Chan2[i].Cmd != GntE
+rule_177:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Cache[j].State != E
+rule_178:   Chan2[i].Cmd = GntS -> Cache[i].State != E
+rule_179:   Chan2[i].Cmd = Empty -> Chan2[i].Cmd != Inv
+rule_180:   CurCmd = ReqE & Chan2[i].Cmd = Empty -> Chan2[i].Cmd != GntS
+rule_181:   ExGntd = false & CurCmd = ReqS -> Chan2[j].Cmd != Inv
+rule_182:   Chan1[i].Cmd = ReqS -> Chan1[i].Cmd != Empty
+rule_183:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan1[i].Cmd != Empty
+rule_184:   Chan2[i].Cmd = GntE -> ShrSet[j] = false
+rule_185:   Cache[i].State = S -> MemData = AuxData
+rule_186:   Chan2[i].Cmd = GntS -> Chan3[i].Cmd != InvAck
+rule_187:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[i].Cmd != Inv
+rule_188:   Chan3[i].Cmd = Empty & Cache[i].State = E -> CurCmd != Empty
+rule_189:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Cache[j].State != S
+rule_190:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan2[i].Cmd != GntE
+rule_191:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Chan3[i].Cmd = Empty
+rule_192:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[j].Cmd != Inv
+rule_193:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Chan2[i].Cmd != GntS
+rule_194:   CurCmd = ReqE & ExGntd = false -> Chan2[i].Cmd != GntE
+rule_195:   Cache[i].State != E & Chan2[i].Cmd = Inv -> ExGntd = false
+rule_196:   Chan3[i].Cmd = InvAck -> Cache[i].State != E
+rule_197:   ExGntd = false -> Cache[j].State != E
+rule_198:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[i].Cmd != GntE
+rule_199:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan2[j].Cmd != Inv
+rule_200:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan3[i].Cmd != Empty
+rule_201:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Cache[i].Data = AuxData
+rule_202:   CurCmd = ReqE -> CurCmd != Empty
+rule_203:   ExGntd = true & InvSet[i] = true -> Cache[j].State = I
+rule_204:   ExGntd = true & Chan3[i].Cmd = InvAck -> Cache[j].State != S
+rule_205:   Chan2[i].Cmd = Empty & InvSet[i] = true -> ShrSet[i] = true
+rule_206:   Chan2[i].Cmd = Inv -> Cache[i].State != I
+rule_207:   Cache[i].State = E -> ExGntd = true
+rule_208:   Chan2[i].Cmd = Empty & ExGntd = false -> Chan2[j].Cmd != GntE
+rule_209:   ExGntd = true & InvSet[i] = true -> Chan2[i].Cmd != GntS
+rule_210:   Cache[i].State = E -> Chan2[j].Cmd = Empty
+rule_211:   Chan2[i].Cmd = Inv -> Chan2[j].Cmd != GntE
+rule_212:   Cache[i].State = S -> Chan2[j].Cmd != GntE
+rule_213:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> CurCmd != ReqE
+rule_214:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan2[j].Cmd != GntE
+rule_215:   Cache[i].State = E -> Cache[j].State != E
+rule_216:   Cache[i].State = S -> Cache[j].State != E
+rule_217:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan2[j].Cmd != GntS
+rule_218:   Cache[i].State = E -> Chan2[j].Cmd != GntS
+rule_219:   Chan3[i].Cmd = Empty & Cache[i].State = E -> InvSet[j] = false
+rule_220:   ExGntd = true & InvSet[i] = true -> ShrSet[j] = false
+rule_221:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Chan1[i].Cmd != ReqS
+rule_222:   ExGntd = false -> MemData = AuxData
+rule_223:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Cache[j].State != E
+rule_224:   ExGntd = true & InvSet[i] = true -> Chan3[j].Cmd = Empty
+rule_225:   Chan2[i].Cmd = GntS -> Chan2[i].Cmd != Empty
+rule_226:   ExGntd = true & Chan3[i].Cmd = InvAck -> Chan2[j].Cmd != GntS
+rule_227:   ExGntd = true & Chan2[i].Cmd = Empty -> Chan2[i].Cmd != GntS
+rule_228:   Chan2[i].Cmd = GntS -> Cache[j].State != E
+rule_229:   Chan3[i].Cmd = InvAck -> InvSet[i] = false
+rule_230:   Chan2[i].Cmd = GntE -> Chan2[j].Cmd != GntS
+rule_231:   ExGntd = true & CurCmd = ReqS -> Cache[i].State != S
+rule_232:   Chan2[i].Cmd = Inv & Cache[i].State = E -> CurCmd != Empty
+rule_233:   Chan2[i].Cmd = Inv & Cache[i].State = E -> ShrSet[j] = false
+rule_234:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan1[i].Cmd != Empty
+rule_235:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Cache[i].State != E
+rule_236:   ExGntd = true & Chan3[i].Cmd = InvAck -> InvSet[j] = false
+rule_237:   Chan2[i].Cmd = Empty & ExGntd = false -> MemData = AuxData
+rule_238:   ExGntd = false & CurCmd = ReqS -> Chan2[i].Cmd != GntE
+rule_239:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan3[i].Cmd = Empty
+rule_240:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan1[i].Cmd != ReqE
+rule_241:   InvSet[i] = true & CurCmd = ReqS -> CurCmd != Empty
+rule_242:   InvSet[i] = true & CurCmd = ReqS -> Chan2[j].Cmd != GntE
+rule_243:   CurCmd = ReqE & ExGntd = false -> Cache[j].State != E
+rule_244:   Chan2[i].Cmd = Inv -> Chan3[i].Cmd = Empty
+rule_245:   Cache[i].State = S -> Cache[i].State != I
+rule_246:   Cache[i].State = I & Chan1[i].Cmd = Empty -> Cache[i].State != S
+rule_247:   Chan2[i].Cmd = Inv -> Cache[j].State != E
+rule_248:   Chan3[i].Cmd = InvAck -> Chan2[i].Cmd != GntE
+rule_249:   ExGntd = true & Chan3[i].Cmd = InvAck -> ShrSet[j] = false
+rule_250:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> InvSet[i] = false
+rule_251:   ExGntd = true & InvSet[i] = true -> Chan2[i].Cmd != Inv
+rule_252:   Chan2[i].Cmd = GntE -> Chan2[j].Cmd = Empty
+rule_253:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Cache[j].State != E
+rule_254:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Cache[j].State != E
+rule_255:   Chan2[i].Cmd = Inv -> ShrSet[i] = true
+rule_256:   InvSet[i] = true & CurCmd = ReqS -> Chan2[i].Cmd != Inv
+rule_257:   Chan2[i].Cmd = GntE -> Cache[i].State != S
+rule_258:   ExGntd = false & CurCmd = ReqS -> Chan2[j].Cmd != GntE
+rule_259:   CurCmd = Empty -> Chan2[j].Cmd != Inv
+rule_260:   Chan2[i].Cmd = Empty & ExGntd = false -> Chan2[i].Cmd != GntS
+rule_261:   Chan3[i].Cmd = InvAck -> Chan2[j].Cmd != GntE
+rule_262:   InvSet[i] = true -> Chan2[j].Cmd != GntE
+rule_263:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan3[i].Cmd != InvAck
+rule_264:   ExGntd = true -> Cache[j].State != S
+rule_265:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan2[j].Cmd != Inv
+rule_266:   CurCmd = ReqS -> CurCmd != ReqE
+rule_267:   Chan2[i].Cmd = Empty & CurCmd = ReqS -> Chan2[i].Cmd != Inv
+rule_268:   ExGntd = false & CurCmd = ReqS -> Chan2[i].Cmd != Inv
+rule_269:   ExGntd = true -> Chan2[i].Cmd != GntS
+rule_270:   Chan3[i].Cmd = Empty -> Chan3[i].Cmd != InvAck
+rule_271:   Cache[i].State != E & Chan2[i].Cmd = Inv -> MemData = AuxData
+rule_272:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan3[i].Cmd != InvAck
+rule_273:   Chan2[i].Cmd = GntS -> MemData = AuxData
+rule_274:   Chan2[i].Cmd = GntE -> CurCmd != Empty
+rule_275:   CurCmd = ReqE & InvSet[i] = true -> Cache[j].State != E
+rule_276:   Cache[i].State = E -> Chan2[i].Cmd != GntS
+rule_277:   Chan1[i].Cmd = Empty & Cache[i].State = S -> ShrSet[i] = true
+rule_278:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan3[j].Cmd = Empty
+rule_279:   ExGntd = true & InvSet[i] = true -> InvSet[j] = false
+rule_280:   ExGntd = true & CurCmd = ReqS -> CurCmd != Empty
+rule_281:   Cache[i].State = I & Chan1[i].Cmd = Empty -> Chan2[i].Cmd != Inv
+rule_282:   InvSet[i] = true -> Cache[j].State != E
+rule_283:   InvSet[i] = true -> Chan2[i].Cmd != Inv
+rule_284:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan3[i].Cmd != InvAck
+rule_285:   ExGntd = true & Chan2[i].Cmd = Empty -> Chan2[i].Cmd != Inv
+rule_286:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Cache[i].State != I
+rule_287:   Chan1[i].Cmd = Empty & Cache[i].State = S -> ExGntd = false
+rule_288:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Cache[i].Data = AuxData
+rule_289:   ExGntd = true & Chan3[i].Cmd = InvAck -> Cache[j].State = I
+rule_290:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Cache[i].State != I
+rule_291:   ExGntd = true & InvSet[i] = true -> Chan2[j].Cmd = Empty
+rule_292:   Cache[i].State = E -> Cache[i].State != I
+rule_293:   ExGntd = true & Chan3[i].Cmd = InvAck -> InvSet[i] = false
+rule_294:   Cache[i].State = I -> Chan2[i].Cmd != Inv
+rule_295:   Chan2[i].Cmd = Inv -> Chan2[i].Cmd != Empty
+rule_296:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Cache[i].State != I
+rule_297:   Chan1[i].Cmd = ReqS -> Chan1[i].Cmd != ReqE
+rule_298:   Chan2[i].Cmd = GntE -> Chan3[i].Cmd = Empty
+rule_299:   InvSet[i] = true & CurCmd = ReqS -> ShrSet[i] = true
+rule_300:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Chan2[i].Cmd != GntE
+rule_301:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Cache[i].State != I
+rule_302:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> CurCmd != ReqS
+rule_303:   Chan1[i].Cmd = ReqE -> Chan1[i].Cmd != ReqS
+rule_304:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> CurCmd != ReqS
+rule_305:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan3[i].Cmd = Empty
+rule_306:   Cache[i].State != E & Chan2[i].Cmd = Inv -> CurCmd != ReqS
+rule_307:   Chan2[i].Cmd = GntE -> Chan2[j].Cmd != Inv
+rule_308:   Chan2[i].Cmd = GntE -> Cache[j].State != S
+rule_309:   ExGntd = true & Chan3[i].Cmd = InvAck -> Cache[j].State != E
+rule_310:   Chan2[i].Cmd = GntS -> Chan2[i].Cmd != GntE
+rule_311:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan2[i].Cmd != Inv
+rule_312:   InvSet[i] = true & CurCmd = ReqS -> Chan3[j].Cmd = Empty
+rule_313:   Chan2[i].Cmd = Empty -> Chan2[i].Cmd != GntE
+rule_314:   Chan2[i].Cmd = Empty -> Chan2[i].Cmd != GntS
+rule_315:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan2[i].Cmd != GntS
+rule_316:   ExGntd = true & InvSet[i] = true -> Chan2[j].Cmd != GntE
+rule_317:   CurCmd = Empty -> Chan3[i].Cmd != InvAck
+rule_318:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan2[j].Cmd = Empty
+rule_319:   CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan3[j].Cmd != InvAck
+rule_320:   Chan3[i].Cmd = InvAck -> Chan3[i].Cmd != Empty
+rule_321:   InvSet[i] = true & CurCmd = ReqS -> Cache[j].State != E
+rule_322:   ExGntd = false & CurCmd = ReqS -> Chan3[j].Cmd != InvAck
+rule_323:   CurCmd = ReqE & InvSet[i] = true -> CurCmd != ReqS
+rule_324:   CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan3[j].Cmd = Empty
+rule_325:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Chan3[i].Cmd != InvAck
+rule_326:   Cache[i].State = E -> ShrSet[j] = false
+rule_327:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Chan2[i].Cmd != Empty
+rule_328:   InvSet[i] = true & CurCmd = ReqS -> Chan3[i].Cmd != InvAck
+rule_329:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Cache[i].Data = AuxData
+rule_330:   Chan2[i].Cmd = Empty & InvSet[i] = true -> Chan2[i].Cmd != GntS
+rule_331:   InvSet[i] = true & CurCmd = ReqS -> Chan3[j].Cmd != InvAck
+rule_332:   ExGntd = true & InvSet[i] = true -> Chan3[i].Cmd != InvAck
+rule_333:   Chan1[i].Cmd = Empty & Cache[i].State = S -> Chan2[j].Cmd != GntE
+rule_334:   Cache[i].State = E -> Chan3[j].Cmd != InvAck
+rule_335:   CurCmd = ReqE & Chan2[i].Cmd = Empty -> CurCmd != Empty
+rule_336:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Chan2[i].Cmd != GntE
+rule_337:   ExGntd = true -> Cache[i].State != S
+rule_338:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Chan2[i].Cmd != GntE
+rule_339:   ExGntd = true & Chan2[i].Cmd = Empty -> Cache[i].State != S
+rule_340:   Chan2[i].Cmd = Inv & Cache[i].State = E -> ExGntd = true
+rule_341:   Chan2[i].Cmd = Empty & ExGntd = false -> Chan2[i].Cmd != GntE
+rule_342:   InvSet[i] = true & CurCmd = ReqS -> CurCmd != ReqE
+rule_343:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Cache[i].Data = AuxData
+rule_344:   Cache[i].State != E & Chan2[i].Cmd = Inv -> Chan2[i].Cmd != Empty
+rule_345:   ExGntd = true & Chan3[i].Cmd = InvAck -> Cache[i].State = I
+rule_346:   Chan2[i].Cmd = GntE -> InvSet[i] = true
+rule_347:   CurCmd = ReqE & ExGntd = false -> Chan2[j].Cmd != GntE
+rule_348:   ExGntd = true & InvSet[i] = true -> Chan2[j].Cmd != GntS
+rule_349:   Chan2[i].Cmd = Empty & ExGntd = false -> Chan2[i].Cmd != Inv
+rule_350:   Chan2[i].Cmd = Empty & CurCmd = ReqS -> CurCmd != Empty
+rule_351:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan2[j].Cmd = Empty
+rule_352:   ExGntd = false -> Chan2[i].Cmd != GntE
+rule_353:   Chan3[i].Cmd = Empty & Cache[i].State = E -> Cache[i].Data = AuxData
+rule_354:   CurCmd = ReqS -> CurCmd != Empty
+rule_355:   Chan2[i].Cmd = GntS -> Chan2[j].Cmd != GntE
+rule_356:   CurCmd = Empty -> Chan3[i].Cmd = Empty
+rule_357:   Chan3[i].Cmd = Empty & Chan2[i].Cmd = Inv -> Chan2[i].Cmd != GntS
+rule_358:   Cache[i].State != E & Chan2[i].Cmd = Inv -> CurCmd = ReqE
+rule_359:   InvSet[i] = true & CurCmd = ReqS -> Chan3[i].Cmd = Empty
+rule_360:   Cache[i].State = S -> Chan3[i].Cmd = Empty
+rule_361:   ExGntd = true & CurCmd = ReqS -> Chan2[i].Cmd != GntS
+rule_362:   Chan2[i].Cmd = Inv & Cache[i].State = E -> Chan2[i].Cmd != GntS
+rule_363:   Cache[i].State = E -> Chan2[j].Cmd != GntE
+rule_364:   Cache[i].State = S -> ShrSet[i] = true
+rule_365:   Chan3[i].Cmd = Empty & Cache[i].State = E -> ShrSet[i] = true
+rule_366:   Chan2[i].Cmd = GntE -> InvSet[j] = false
+rule_367:   ExGntd = true & InvSet[i] = true -> Cache[i].State != S
+rule_368:   ExGntd = true -> Chan2[j].Cmd != GntS
+rule_369:   Chan2[i].Cmd = Inv -> Cache[i].Data = AuxData

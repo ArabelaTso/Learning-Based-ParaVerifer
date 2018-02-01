@@ -1,0 +1,72 @@
+
+State 1:
+n[NODE_1]:I
+n[NODE_2]:I
+x:true
+
+State 2:
+n[NODE_1]:T
+n[NODE_2]:I
+x:true
+
+State 3:
+n[NODE_1]:I
+n[NODE_2]:T
+x:true
+
+State 4:
+n[NODE_1]:C
+n[NODE_2]:I
+x:false
+
+State 5:
+n[NODE_1]:T
+n[NODE_2]:T
+x:true
+
+State 6:
+n[NODE_1]:I
+n[NODE_2]:C
+x:false
+
+State 7:
+n[NODE_1]:E
+n[NODE_2]:I
+x:false
+
+State 8:
+n[NODE_1]:C
+n[NODE_2]:T
+x:false
+
+State 9:
+n[NODE_1]:T
+n[NODE_2]:C
+x:false
+
+State 10:
+n[NODE_1]:I
+n[NODE_2]:E
+x:false
+
+State 11:
+n[NODE_1]:E
+n[NODE_2]:T
+x:false
+
+State 12:
+n[NODE_1]:T
+n[NODE_2]:E
+x:false
+
+
+==========================================================================
+
+Status:
+
+	No error found.
+
+State Space Explored:
+
+	12 states, 20 rules fired in 0.10s.
+
