@@ -54,6 +54,6 @@ endrule;endruleset;
 invariant "mutualEx"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (n[i] = E -> n[j] != E
+  (n[i] = C -> n[j] != C
 )
  end  end ;
