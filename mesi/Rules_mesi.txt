@@ -1,81 +1,8 @@
-
-rule_1:   state[i] = S -> state[i] != I
-rule_2:   state[i] = M -> state[i] != I
-rule_3:   state[i] = E -> state[i] != I
+rule_1:   state[i] = M -> state[j] = I
+rule_2:   state[i] != S -> state[j] = I
+rule_3:   state[i] = E -> state[j] = I
 rule_4:   state[j] = S -> state[i] != I
-rule_5:   state[i] = S -> state[i] != M
-rule_6:   state[i] = I -> state[i] != M
-rule_7:   state[i] = E -> state[i] != M
-rule_8:   state[j] = S -> state[i] != M
-rule_9:   state[i] = S -> state[i] != E
-rule_10:   state[j] = S -> state[i] = S
-rule_11:   state[i] = I -> state[i] != S
-rule_12:   state[i] = M -> state[i] != S
-rule_13:   state[i] = E -> state[i] != S
-rule_14:   state[i] != S -> state[j] = I
-rule_15:   state[i] = I -> state[i] != E
-rule_16:   state[i] = I -> state[j] = I
-rule_17:   state[i] = M -> state[i] != E
-rule_18:   state[i] = M -> state[j] = I
-rule_19:   state[j] = S -> state[i] != E
-rule_20:   state[i] = E -> state[j] = I
-rule_21:   state[i] != I & state[i] = S -> state[i] != M
-rule_22:   state[i] != M & state[i] = S -> state[i] != I
-rule_23:   state[i] != I & state[i] = E -> state[i] != M
-rule_24:   state[i] != M & state[i] = E -> state[i] != I
-rule_25:   state[i] != I & state[j] = S -> state[i] != M
-rule_26:   state[i] != M & state[j] = S -> state[i] != I
-rule_27:   state[i] != I & state[i] = S -> state[i] != E
-rule_28:   state[i] != E & state[i] = S -> state[i] != I
-rule_29:   state[i] = S & state[j] = I -> state[i] != I
-rule_30:   state[i] != I & state[j] = S -> state[i] = S
-rule_31:   state[i] = S & state[j] = S -> state[i] != I
-rule_32:   state[i] != I & state[i] = M -> state[i] != S
-rule_33:   state[i] != S & state[i] = M -> state[i] != I
-rule_34:   state[i] != I & state[i] = E -> state[i] != S
-rule_35:   state[i] != S & state[i] = E -> state[i] != I
-rule_36:   state[i] != I & state[i] != S -> state[j] = I
-rule_37:   state[i] != I & state[i] = M -> state[i] != E
-rule_38:   state[i] != E & state[i] = M -> state[i] != I
-rule_39:   state[i] != I & state[i] = M -> state[j] = I
-rule_40:   state[i] = M & state[j] = I -> state[i] != I
-rule_41:   state[i] != I & state[j] = S -> state[i] != E
-rule_42:   state[i] != E & state[j] = S -> state[i] != I
-rule_43:   state[i] != I & state[i] = E -> state[j] = I
-rule_44:   state[i] = E & state[j] = I -> state[i] != I
-rule_45:   state[i] != M & state[i] = S -> state[i] != E
-rule_46:   state[i] != E & state[i] = S -> state[i] != M
-rule_47:   state[i] = S & state[j] = I -> state[i] != M
-rule_48:   state[i] != M & state[j] = S -> state[i] = S
-rule_49:   state[i] = S & state[j] = S -> state[i] != M
-rule_50:   state[i] != M & state[i] = I -> state[i] != S
-rule_51:   state[i] != S & state[i] = I -> state[i] != M
-rule_52:   state[i] != M & state[i] = E -> state[i] != S
-rule_53:   state[i] != S & state[i] = E -> state[i] != M
-rule_54:   state[i] != M & state[i] != S -> state[j] = I
-rule_55:   state[i] != M & state[i] = I -> state[i] != E
-rule_56:   state[i] != E & state[i] = I -> state[i] != M
-rule_57:   state[i] = I & state[j] = I -> state[i] != M
-rule_58:   state[i] != M & state[i] = I -> state[j] = I
-rule_59:   state[i] != M & state[j] = S -> state[i] != E
-rule_60:   state[i] != E & state[j] = S -> state[i] != M
-rule_61:   state[i] = E & state[j] = I -> state[i] != M
-rule_62:   state[i] != M & state[i] = E -> state[j] = I
-rule_63:   state[i] = S & state[j] = I -> state[i] != E
-rule_64:   state[i] = S & state[j] = S -> state[i] != E
-rule_65:   state[i] != E & state[j] = S -> state[i] = S
-rule_66:   state[i] != S & state[i] = I -> state[i] != E
-rule_67:   state[i] != E & state[i] = I -> state[i] != S
-rule_68:   state[i] = I & state[j] = I -> state[i] != S
-rule_69:   state[i] != S & state[i] = I -> state[j] = I
-rule_70:   state[i] != S & state[i] = M -> state[i] != E
-rule_71:   state[i] != E & state[i] = M -> state[i] != S
-rule_72:   state[i] = M & state[j] = I -> state[i] != S
-rule_73:   state[i] != S & state[i] = M -> state[j] = I
-rule_74:   state[i] != E & state[i] != S -> state[j] = I
-rule_75:   state[i] = E & state[j] = I -> state[i] != S
-rule_76:   state[i] != S & state[i] = E -> state[j] = I
-rule_77:   state[i] = I & state[j] = I -> state[i] != E
-rule_78:   state[i] != E & state[i] = I -> state[j] = I
-rule_79:   state[i] = M & state[j] = I -> state[i] != E
-rule_80:   state[i] != E & state[i] = M -> state[j] = I
+rule_5:   state[i] = I -> state[j] = I
+rule_6:   state[j] = S -> state[i] != M
+rule_7:   state[j] = S -> state[i] = S
+rule_8:   state[j] = S -> state[i] != E

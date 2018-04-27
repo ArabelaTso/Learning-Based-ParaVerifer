@@ -1,5 +1,5 @@
 const 
-    num_NODEs: 2;
+    num_NODEs: 3;
 
 type 
     NODE : scalarset(num_NODEs);

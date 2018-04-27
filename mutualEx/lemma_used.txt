@@ -1,5 +1,0 @@
-rule_1:   x = true -> n[j] != E
-rule_2:   n[i] = E -> n[j] != C
-rule_3:   n[i] = E -> n[j] != E
-rule_4:   x = true -> n[j] != C
-rule_5:   n[i] = E -> x = false

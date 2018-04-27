@@ -1,0 +1,8 @@
+state[i] = E
+state[i] = I
+state[i] = S
+state[i] = M
+state[j] = E
+state[j] = I
+state[j] = S
+state[j] = M

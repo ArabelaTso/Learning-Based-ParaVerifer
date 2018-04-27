@@ -1,6 +1,6 @@
 const  ---- Configuration parameters ----
 
-  NODE_NUM : 4;
+  NODE_NUM : 2;
   DATA_NUM : 2;
 
 type   ---- Type declarations ----
@@ -8,7 +8,7 @@ type   ---- Type declarations ----
   NODE : scalarset(NODE_NUM);
   DATA : scalarset(DATA_NUM);
 
-  ABS_NODE : union {NODE, enum{Other}};
+  ABS_NODE : union{NODE, enum{Other}};
 
   CACHE_STATE : enum {I, S, E};
   CACHE : record State : CACHE_STATE; Data : DATA; end;
@@ -50,6 +50,7 @@ begin
   Cache[i].State := E;
   Cache[i].Data := Chan2[i].Data;
   Chan2[i].Cmd := Empty;
+  undefine Chan2[i].Data;
 endrule;
 endruleset;
 
@@ -61,6 +62,7 @@ begin
   Cache[i].State := S;
   Cache[i].Data := Chan2[i].Data;
   Chan2[i].Cmd := Empty;
+  undefine Chan2[i].Data;
 endrule;
 endruleset;
 
@@ -80,6 +82,7 @@ begin
   ShrSet[i] := true;
   ExGntd := true;
   CurCmd := Empty;
+  undefine CurPtr;
 endrule;
 endruleset;
 
@@ -95,6 +98,7 @@ begin
   Chan2[i].Data := MemData;
   ShrSet[i] := true;
   CurCmd := Empty;
+  undefine CurPtr;
 endrule;
 endruleset;
 
@@ -108,13 +112,14 @@ begin
   ShrSet[i] := false;
   ExGntd := false;
   MemData := Chan3[i].Data;
+  undefine Chan3[i].Data;
 endrule;
 endruleset;
 
 ruleset i : NODE do
 rule "RecvInvAck6"
   Chan3[i].Cmd = InvAck &
-  ExGntd != true
+  ExGntd = false
 ==>
 begin
   Chan3[i].Cmd := Empty;
@@ -133,6 +138,7 @@ begin
   Chan3[i].Cmd := InvAck;
   Chan3[i].Data := Cache[i].Data;
   Cache[i].State := I;
+  undefine Cache[i].Data;
 endrule;
 endruleset;
 
@@ -146,6 +152,7 @@ begin
   Chan2[i].Cmd := Empty;
   Chan3[i].Cmd := InvAck;
   Cache[i].State := I;
+  undefine Cache[i].Data;
 endrule;
 endruleset;
 

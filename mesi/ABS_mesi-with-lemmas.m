@@ -70,13 +70,13 @@ begin
   endfor; 
 endstartstate;
 
-
 invariant "Mesi"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
   (state[i] = M -> state[j] != M
 )
  end  end ;
+
 
 
 rule "ABS_t2"

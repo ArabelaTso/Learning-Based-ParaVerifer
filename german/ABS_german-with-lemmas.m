@@ -1,48 +1,51 @@
-const  ---- Configuration parameters ----
 
-  NODE_NUM : 2;
+const
+
+  NODE_NUM : 3;
   DATA_NUM : 2;
 
-type   ---- Type declarations ----
+type
 
   NODE : scalarset(NODE_NUM);
   DATA : scalarset(DATA_NUM);
 
   ABS_NODE : union {NODE, enum{Other}};
 
-  CACHE_STATE : enum {I, S, E};
-  CACHE : record State : CACHE_STATE; Data : DATA; end;
+  CACHE_STATE : enum{I,S,E};
 
-  MSG_CMD : enum {Empty, ReqS, ReqE, Inv, InvAck, GntS, GntE};
-  MSG : record Cmd : MSG_CMD; Data : DATA; end;
-
-var   ---- State variables ----
-
-  Cache : array [NODE] of CACHE;      -- Caches
-  Chan1 : array [NODE] of MSG;        -- Channels for Req*
-  Chan2 : array [NODE] of MSG;        -- Channels for Gnt* and Inv
-  Chan3 : array [NODE] of MSG;        -- Channels for InvAck
-  InvSet : array [NODE] of boolean;   -- Set of nodes to be invalidated
-  ShrSet : array [NODE] of boolean;   -- Set of nodes having S or E copies
-  ExGntd : boolean;                   -- E copy has been granted
-  CurCmd : MSG_CMD;                   -- Current request command
-  CurPtr : ABS_NODE;                  -- Current request node
-  MemData : DATA;                     -- Memory data
-  AuxData : DATA;                     -- Auxiliary variable for latest data
-
----- Initial states ----
-
-ruleset d : DATA do startstate "Init"
-  for i : NODE do
-    Chan1[i].Cmd := Empty; Chan2[i].Cmd := Empty; Chan3[i].Cmd := Empty;
-    Cache[i].State := I; InvSet[i] := false; ShrSet[i] := false;
+  CACHE : record
+    State : CACHE_STATE;
+    Data : DATA;
   end;
-  ExGntd := false; CurCmd := Empty; MemData := d; AuxData := d;
-end end;
 
----- State transitions ----
+  MSG_CMD : enum{Empty,ReqS,ReqE,Inv,InvAck,GntS,GntE};
 
-ruleset i : NODE do
+  MSG : record
+    Cmd : MSG_CMD;
+    Data : DATA;
+  end;
+  new_type_0 : array [ NODE ] of CACHE;
+  new_type_1 : array [ NODE ] of MSG;
+  new_type_2 : array [ NODE ] of MSG;
+  new_type_3 : array [ NODE ] of MSG;
+  new_type_4 : array [ NODE ] of boolean;
+  new_type_5 : array [ NODE ] of boolean;
+
+var
+
+  Cache : new_type_0;
+  Chan1 : new_type_1;
+  Chan2 : new_type_2;
+  Chan3 : new_type_3;
+  InvSet : new_type_4;
+  ShrSet : new_type_5;
+  ExGntd : boolean;
+  CurCmd : MSG_CMD;
+  CurPtr : ABS_NODE;
+  MemData : DATA;
+  AuxData : DATA;
+
+ruleset  i : NODE do
 rule "RecvGntE1"
   Chan2[i].Cmd = GntE
 ==>
@@ -54,7 +57,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "RecvGntS2"
   Chan2[i].Cmd = GntS
 ==>
@@ -66,7 +69,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendGntE3"
   CurCmd = ReqE &
   CurPtr = i &
@@ -86,7 +89,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendGntS4"
   CurCmd = ReqS &
   CurPtr = i &
@@ -102,9 +105,10 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "RecvInvAck5"
   Chan3[i].Cmd = InvAck &
+  CurCmd != Empty &
   ExGntd = true
 ==>
 begin
@@ -116,10 +120,11 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "RecvInvAck6"
   Chan3[i].Cmd = InvAck &
-  ExGntd = false
+  CurCmd != Empty &
+  ExGntd != true
 ==>
 begin
   Chan3[i].Cmd := Empty;
@@ -127,7 +132,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendInvAck7"
   Chan2[i].Cmd = Inv &
   Chan3[i].Cmd = Empty &
@@ -142,7 +147,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendInvAck8"
   Chan2[i].Cmd = Inv &
   Chan3[i].Cmd = Empty &
@@ -156,7 +161,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendInv9"
   Chan2[i].Cmd = Empty &
   InvSet[i] = true &
@@ -168,7 +173,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendInv10"
   Chan2[i].Cmd = Empty &
   InvSet[i] = true &
@@ -181,7 +186,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "RecvReqE11"
   CurCmd = Empty &
   Chan1[i].Cmd = ReqE
@@ -196,7 +201,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "RecvReqS12"
   CurCmd = Empty &
   Chan1[i].Cmd = ReqS
@@ -211,7 +216,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendReqE13"
   Chan1[i].Cmd = Empty &
   Cache[i].State = I
@@ -221,7 +226,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendReqE14"
   Chan1[i].Cmd = Empty &
   Cache[i].State = S
@@ -231,7 +236,7 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE do
+ruleset  i : NODE do
 rule "SendReqS15"
   Chan1[i].Cmd = Empty &
   Cache[i].State = I
@@ -241,15 +246,17 @@ begin
 endrule;
 endruleset;
 
-ruleset i : NODE; data : DATA do rule "Store"
+ruleset  d : DATA; i : NODE do
+rule "Store16"
   Cache[i].State = E
 ==>
 begin
-  Cache[i].Data := data;
-  AuxData := data;
-endrule;endruleset;
+  Cache[i].Data := d;
+  AuxData := d;
+endrule;
+endruleset;
 
-ruleset d : DATA do
+ruleset  d : DATA do
 startstate
   for i : NODE do
     Chan1[i].Cmd := Empty;
@@ -265,26 +272,33 @@ startstate
   AuxData := d;
 endstartstate;
 endruleset;
-
----- Invariant properties ----
-
 invariant "CntrlProp"
-  forall i : NODE do forall j : NODE do
-    i != j -> (Cache[i].State = E -> Cache[j].State = I) &
-              (Cache[i].State = S -> Cache[j].State = I | Cache[j].State = S)
-  end end;
+  forall i : NODE do
+    forall j : NODE do
+      (i != j ->
+      ((Cache[i].State = E ->
+      Cache[j].State = I) &
+      (Cache[i].State = S ->
+      (Cache[j].State = I |
+      Cache[j].State = S))))
+    end
+  end;
 
 invariant "DataProp"
-  ( ExGntd = false -> MemData = AuxData ) &
-  forall i : NODE do Cache[i].State != I -> Cache[i].Data = AuxData end;
+  ((ExGntd = false ->
+  MemData = AuxData) &
+  forall i : NODE do
+    (Cache[i].State != I ->
+    Cache[i].Data = AuxData)
+  end);
 
 
 
 
 rule "ABS_SendGntE3"
-  CurCmd = ReqE & CurPtr = Other & forall j : NODE do
+  CurPtr = Other & ExGntd = false & forall j : NODE do
     ShrSet[j] = false
-  end & ExGntd = false & MemData = AuxData &
+  end & CurCmd = ReqE & MemData = AuxData &
   forall j : NODE do 
   (Chan2[j].Cmd != GntE) & (Cache[j].State != E)
 end
@@ -297,9 +311,9 @@ end;
 
 
 rule "ABS_SendGntS4"
-  CurCmd = ReqS & CurPtr = Other & ExGntd = false & MemData = AuxData &
+  CurPtr = Other & ExGntd = false & MemData = AuxData & CurCmd = ReqS &
   forall j : NODE do 
-  (Chan3[j].Cmd != InvAck) & (Chan2[j].Cmd != Inv) & (Chan2[j].Cmd != GntE) & (Chan3[j].Cmd = Empty) & (Cache[j].State != E)
+  (Chan2[j].Cmd != GntE) & (Cache[j].State != E)
 end
 ==>
 CurCmd := Empty;
@@ -309,9 +323,9 @@ end;
 
 
 rule "ABS_RecvInvAck5"
-  ExGntd = true & CurCmd != Empty &
+  CurCmd != Empty & ExGntd = true &
   forall j : NODE do 
-  (Chan2[j].Cmd != GntS) & (ShrSet[j] = false) & (Cache[j].State != S) & (Cache[j].State = I) & (InvSet[j] = false) & (Chan2[j].Cmd = Empty) & (Chan3[j].Cmd != InvAck) & (Chan2[j].Cmd != Inv) & (Chan3[j].Cmd = Empty) & (Chan2[j].Cmd != GntE) & (Cache[j].State != E)
+  (Chan2[j].Cmd != GntE) & (Cache[j].State = I) & (Chan2[j].Cmd != GntS) & (ShrSet[j] = false) & (Chan3[j].Cmd = Empty) & (Chan3[j].Cmd != InvAck) & (Cache[j].State != E) & (InvSet[j] = false) & (Chan2[j].Cmd != Inv) & (Chan2[j].Cmd = Empty) & (Cache[j].State != S)
 end
 ==>
 ExGntd := false;
@@ -323,7 +337,7 @@ end;
 rule "ABS_RecvReqE11"
   CurCmd = Empty &
   forall j : NODE do 
-  (Chan3[j].Cmd = Empty) & (Chan2[j].Cmd != Inv) & (Chan3[j].Cmd != InvAck)
+  (Chan2[j].Cmd != Inv) & (Chan3[j].Cmd = Empty) & (Chan3[j].Cmd != InvAck)
 end
 ==>
 CurCmd := ReqE;
@@ -338,7 +352,7 @@ end;
 rule "ABS_RecvReqS12"
   CurCmd = Empty &
   forall j : NODE do 
-  (Chan3[j].Cmd = Empty) & (Chan2[j].Cmd != Inv) & (Chan3[j].Cmd != InvAck)
+  (Chan2[j].Cmd != Inv) & (Chan3[j].Cmd = Empty) & (Chan3[j].Cmd != InvAck)
 end
 ==>
 CurCmd := ReqS;
@@ -350,20 +364,10 @@ end;
 
 
 
-ruleset data: DATA do rule "ABS_Store"
-  ExGntd = true &
-  forall j : NODE do 
-  (Chan2[j].Cmd != GntS) & (ShrSet[j] = false) & (Cache[j].State != S) & (Cache[j].State = I) & (InvSet[j] = false) & (Chan2[j].Cmd = Empty) & (Chan3[j].Cmd != InvAck) & (Chan2[j].Cmd != Inv) & (Chan2[j].Cmd != GntE) & (Chan3[j].Cmd = Empty) & (Cache[j].State != E)
-end
-==>AuxData := data;
-end;end;
-
-
-
 
 invariant "rule_1"
-forall j : NODE do 
-CurCmd = Empty -> Chan3[j].Cmd != InvAck
+forall i : NODE do 
+Chan3[i].Cmd = InvAck & ExGntd = true -> Chan3[i].Data = AuxData
  end ;
 
 
@@ -372,7 +376,7 @@ CurCmd = Empty -> Chan3[j].Cmd != InvAck
 invariant "rule_2"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Chan3[i].Cmd = InvAck & ExGntd = true -> ShrSet[j] = false
+  (CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan3[j].Cmd != InvAck
 )
  end  end ;
 
@@ -382,7 +386,7 @@ i != j   ->
 invariant "rule_3"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Chan3[i].Cmd = InvAck & ExGntd = true -> InvSet[j] = false
+  (CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan3[j].Cmd = Empty
 )
  end  end ;
 
@@ -392,7 +396,7 @@ i != j   ->
 invariant "rule_4"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> Cache[j].State != S
+  (CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan2[j].Cmd != Inv
 )
  end  end ;
 
@@ -402,7 +406,7 @@ i != j   ->
 invariant "rule_5"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> Cache[j].State != E
+  (Chan3[i].Cmd = InvAck & ExGntd = true -> ShrSet[j] = false
 )
  end  end ;
 
@@ -412,7 +416,7 @@ i != j   ->
 invariant "rule_6"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Chan3[i].Cmd = InvAck & ExGntd = true -> Chan2[j].Cmd = Empty
+  (Chan2[i].Cmd = Empty & ExGntd = false -> Chan2[j].Cmd != GntE
 )
  end  end ;
 
@@ -422,7 +426,7 @@ i != j   ->
 invariant "rule_7"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> ShrSet[j] = false
+  (CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan3[j].Cmd = Empty
 )
  end  end ;
 
@@ -432,7 +436,7 @@ i != j   ->
 invariant "rule_8"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> Chan2[j].Cmd = Empty
+  (Chan3[i].Cmd = InvAck & ExGntd = true -> Cache[j].State != S
 )
  end  end ;
 
@@ -440,92 +444,24 @@ i != j   ->
 
 
 invariant "rule_9"
-forall j : NODE do 
-CurCmd = ReqS & ExGntd = false -> Chan3[j].Cmd = Empty
- end ;
+forall i : NODE do forall j : NODE do 
+i != j   -> 
+  (CurCmd = Empty & Chan1[i].Cmd = ReqE -> Chan2[j].Cmd != Inv
+)
+ end  end ;
 
 
 
 
 invariant "rule_10"
-forall i : NODE do forall j : NODE do 
-i != j   -> 
-  (Cache[i].State = E -> Chan2[j].Cmd != Inv
-)
- end  end ;
+forall i : NODE do 
+Chan2[i].Cmd = Empty & ExGntd = false -> MemData = AuxData
+ end ;
 
 
 
 
 invariant "rule_11"
-forall j : NODE do 
-Cache[j].State = I -> Chan2[j].Cmd != Inv
- end ;
-
-
-
-
-invariant "rule_12"
-forall i : NODE do 
-Cache[i].State = E -> Cache[i].Data = AuxData
- end ;
-
-
-
-
-invariant "rule_13"
-forall i : NODE do forall j : NODE do 
-i != j   -> 
-  (Chan3[i].Cmd = InvAck & ExGntd = true -> Cache[j].State = I
-)
- end  end ;
-
-
-
-
-invariant "rule_14"
-forall j : NODE do 
-CurCmd = ReqS & ExGntd = false -> Chan2[j].Cmd != Inv
- end ;
-
-
-
-
-invariant "rule_15"
-forall j : NODE do 
-ExGntd = true -> Cache[j].State != S
- end ;
-
-
-
-
-invariant "rule_16"
-forall i : NODE do 
-Chan3[i].Cmd = InvAck & ExGntd = true -> Chan3[i].Data = AuxData
- end ;
-
-
-
-
-invariant "rule_17"
-forall i : NODE do forall j : NODE do 
-i != j   -> 
-  (Cache[i].State = E -> InvSet[j] = false
-)
- end  end ;
-
-
-
-
-invariant "rule_18"
-forall j : NODE do 
-CurCmd = Empty -> Chan3[j].Cmd = Empty
- end ;
-
-
-
-
-invariant "rule_19"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
   (Chan3[i].Cmd = InvAck & ExGntd = true -> Chan2[j].Cmd != Inv
@@ -535,69 +471,27 @@ i != j   ->
 
 
 
-invariant "rule_20"
+invariant "rule_12"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Chan3[i].Cmd = InvAck & ExGntd = true -> Chan3[j].Cmd = Empty
+  (CurCmd = Empty & Chan1[i].Cmd = ReqS -> Chan3[j].Cmd != InvAck
 )
  end  end ;
 
 
 
 
-invariant "rule_21"
-forall j : NODE do 
-CurCmd = ReqS & ExGntd = false -> Chan3[j].Cmd != InvAck
- end ;
-
-
-
-
-invariant "rule_22"
+invariant "rule_13"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> Chan2[j].Cmd != GntS
+  (Chan3[i].Cmd = InvAck & ExGntd = true -> Chan2[j].Cmd != GntS
 )
  end  end ;
 
 
 
 
-invariant "rule_23"
-forall j : NODE do 
-ExGntd = true -> Chan2[j].Cmd != GntS
- end ;
-
-
-
-
-invariant "rule_24"
-forall i : NODE do forall j : NODE do 
-i != j   -> 
-  (Cache[i].State = E -> Chan3[j].Cmd = Empty
-)
- end  end ;
-
-
-
-
-invariant "rule_25"
-forall i : NODE do 
-Cache[i].State = E -> ExGntd = true
- end ;
-
-
-
-
-invariant "rule_26"
-forall j : NODE do 
-CurCmd = Empty -> Chan2[j].Cmd != Inv
- end ;
-
-
-
-
-invariant "rule_27"
+invariant "rule_14"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
   (Chan3[i].Cmd = InvAck & ExGntd = true -> Chan3[j].Cmd != InvAck
@@ -607,29 +501,49 @@ i != j   ->
 
 
 
-invariant "rule_28"
+invariant "rule_15"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> Cache[j].State = I
+  (Chan3[i].Cmd = InvAck & ExGntd = true -> InvSet[j] = false
 )
  end  end ;
 
 
 
 
-invariant "rule_29"
+invariant "rule_16"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> Chan3[j].Cmd != InvAck
+  (Chan3[i].Cmd = InvAck & ExGntd = true -> Cache[j].State = I
 )
  end  end ;
 
 
 
 
-invariant "rule_30"
+invariant "rule_17"
 forall i : NODE do forall j : NODE do 
 i != j   -> 
-  (Cache[i].State = E -> Chan2[j].Cmd != GntE
+  (Chan2[i].Cmd = Empty & ExGntd = false -> Cache[j].State != E
+)
+ end  end ;
+
+
+
+
+invariant "rule_18"
+forall i : NODE do forall j : NODE do 
+i != j   -> 
+  (Chan3[i].Cmd = InvAck & ExGntd = true -> Chan2[j].Cmd = Empty
+)
+ end  end ;
+
+
+
+
+invariant "rule_19"
+forall i : NODE do forall j : NODE do 
+i != j   -> 
+  (Chan3[i].Cmd = InvAck & ExGntd = true -> Chan3[j].Cmd = Empty
 )
  end  end ;

@@ -1,5 +1,5 @@
 const 
-      NODENUMS : 2;
+      NODENUMS : 3;
 type 
      location: enum{ M, E, S, I};
 

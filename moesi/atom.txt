@@ -1,0 +1,10 @@
+a[i] = E
+a[i] = I
+a[i] = S
+a[i] = OSTATUS
+a[i] = I
+a[j] = E
+a[j] = I
+a[j] = S
+a[j] = OSTATUS
+a[j] = I

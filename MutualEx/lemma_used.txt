@@ -1,0 +1,4 @@
+usedF_1:   n[i].st = E -> n[i].data = auxDATA
+usedF_2:   n[i].st = E -> n[j].st != E
+usedF_3:   n[i].st = E -> n[j].st != C
+

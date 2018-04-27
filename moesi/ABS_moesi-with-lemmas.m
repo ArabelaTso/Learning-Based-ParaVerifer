@@ -88,7 +88,6 @@ i != j   ->
 
 
 
-
 rule "ABS_rule_t2"
   True
 ==>
@@ -119,10 +118,7 @@ end;
 
 
 rule "ABS_rul_t4"
-   
-  forall j : NODE do 
-  (a[j] = S)
-end
+  True
 ==>
 for j: NODE do
     if (False) then a[j] := E;
@@ -142,13 +138,3 @@ for j: NODE do
  endif;
  endfor;
 end;
-
-
-
-
-invariant "rule_1"
-forall i : NODE do forall j : NODE do 
-i != j   -> 
-  (a[i] = OSTATUS -> a[j] = S
-)
- end  end ;
