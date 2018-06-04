@@ -1,8 +1,0 @@
-rule_1:   state[i] = M -> state[j] = I
-rule_2:   state[i] != S -> state[j] = I
-rule_3:   state[i] = E -> state[j] = I
-rule_4:   state[j] = S -> state[i] != I
-rule_5:   state[i] = I -> state[j] = I
-rule_6:   state[j] = S -> state[i] != M
-rule_7:   state[j] = S -> state[i] = S
-rule_8:   state[j] = S -> state[i] != E

@@ -1,2 +1,0 @@
-rule_1:   a[i] = E -> a[j] = I
-rule_2:   a[j] = E -> a[i] = I

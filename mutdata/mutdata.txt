@@ -1,0 +1,847 @@
+This program should be regarded as a DEBUGGING aid, not as a 
+certifier of correctness.
+Call with the -l flag or read the license file for terms
+and conditions of use.
+Run this program with "-h" for the list of options.
+
+Bugs, questions, and comments should be directed to
+"melatti@di.uniroma1.it".
+
+CMurphi compiler last modified date: Mar  5 2018
+Include files last modified date:    Nov 8 2016
+==========================================================================
+
+==========================================================================
+Caching Murphi Release 5.4.9.1
+Finite-state Concurrent System Verifier.
+
+Caching Murphi Release 5.4.9.1 is based on various versions of Murphi.
+Caching Murphi Release 5.4.9.1 :
+Copyright (C) 2009-2012 by Sapienza University of Rome.
+Murphi release 3.1 :
+Copyright (C) 1992 - 1999 by the Board of Trustees of
+Leland Stanford Junior University.
+
+==========================================================================
+
+Protocol: mutdata/mutdata
+
+Algorithm:
+	Verification by breadth first search.
+	with symmetry algorithm 3 -- Heuristic Small Memory Normalization
+	with permutation trial limit 10.
+
+Memory usage:
+
+	* The size of each state is 56 bits (rounded up to 8 bytes).
+	* The memory allocated for the hash table and state queue is
+	  10240 Mbytes.
+	  With two words of overhead per state, the maximum size of
+	  the state space is 609523813 states.
+	   * Use option "-k" or "-m" to increase this, if necessary.
+	* Capacity in queue for breadth-first search: 60952381 states.
+	   * Change the constant gPercentActiveStates in mu_prolog.inc
+	     to increase this, if necessary.
+State 1:
+n[1].st:I
+n[1].data:1
+n[2].st:I
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 2:
+n[1].st:I
+n[1].data:2
+n[2].st:I
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 3:
+n[1].st:T
+n[1].data:1
+n[2].st:I
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 4:
+n[1].st:I
+n[1].data:1
+n[2].st:T
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 5:
+n[1].st:T
+n[1].data:2
+n[2].st:I
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 6:
+n[1].st:I
+n[1].data:2
+n[2].st:T
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 7:
+n[1].st:C
+n[1].data:1
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 8:
+n[1].st:T
+n[1].data:1
+n[2].st:T
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 9:
+n[1].st:I
+n[1].data:1
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 10:
+n[1].st:C
+n[1].data:2
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 11:
+n[1].st:T
+n[1].data:2
+n[2].st:T
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 12:
+n[1].st:I
+n[1].data:2
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 13:
+n[1].st:C
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:1
+
+State 14:
+n[1].st:E
+n[1].data:1
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 15:
+n[1].st:C
+n[1].data:1
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 16:
+n[1].st:T
+n[1].data:1
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 17:
+n[1].st:I
+n[1].data:1
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 18:
+n[1].st:I
+n[1].data:1
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 19:
+n[1].st:C
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:2
+
+State 20:
+n[1].st:E
+n[1].data:2
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 21:
+n[1].st:C
+n[1].data:2
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 22:
+n[1].st:T
+n[1].data:2
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 23:
+n[1].st:I
+n[1].data:2
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 24:
+n[1].st:I
+n[1].data:2
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 25:
+n[1].st:E
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:1
+
+State 26:
+n[1].st:C
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:1
+
+State 27:
+n[1].st:E
+n[1].data:1
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 28:
+n[1].st:T
+n[1].data:1
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 29:
+n[1].st:T
+n[1].data:1
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 30:
+n[1].st:I
+n[1].data:1
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 31:
+n[1].st:E
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:2
+
+State 32:
+n[1].st:C
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:2
+
+State 33:
+n[1].st:E
+n[1].data:2
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 34:
+n[1].st:T
+n[1].data:2
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 35:
+n[1].st:T
+n[1].data:2
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 36:
+n[1].st:I
+n[1].data:2
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 37:
+n[1].st:I
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:true
+auxDATA:2
+memDATA:2
+
+State 38:
+n[1].st:E
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:1
+
+State 39:
+n[1].st:T
+n[1].data:1
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 40:
+n[1].st:I
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 41:
+n[1].st:I
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:true
+auxDATA:1
+memDATA:1
+
+State 42:
+n[1].st:E
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:2
+
+State 43:
+n[1].st:T
+n[1].data:2
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 44:
+n[1].st:I
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 45:
+n[1].st:T
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:true
+auxDATA:2
+memDATA:2
+
+State 46:
+n[1].st:I
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:true
+auxDATA:2
+memDATA:2
+
+State 47:
+n[1].st:T
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 48:
+n[1].st:I
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 49:
+n[1].st:T
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:true
+auxDATA:1
+memDATA:1
+
+State 50:
+n[1].st:I
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:true
+auxDATA:1
+memDATA:1
+
+State 51:
+n[1].st:T
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 52:
+n[1].st:I
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 53:
+n[1].st:C
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:2
+
+State 54:
+n[1].st:T
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:true
+auxDATA:2
+memDATA:2
+
+State 55:
+n[1].st:T
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:true
+auxDATA:2
+memDATA:2
+
+State 56:
+n[1].st:I
+n[1].data:1
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 57:
+n[1].st:C
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:1
+
+State 58:
+n[1].st:T
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:true
+auxDATA:1
+memDATA:1
+
+State 59:
+n[1].st:T
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:true
+auxDATA:1
+memDATA:1
+
+State 60:
+n[1].st:I
+n[1].data:2
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 61:
+n[1].st:C
+n[1].data:1
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 62:
+n[1].st:E
+n[1].data:2
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:2
+
+State 63:
+n[1].st:C
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:2
+
+State 64:
+n[1].st:T
+n[1].data:1
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 65:
+n[1].st:I
+n[1].data:1
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 66:
+n[1].st:I
+n[1].data:1
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 67:
+n[1].st:C
+n[1].data:2
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 68:
+n[1].st:E
+n[1].data:1
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:1
+
+State 69:
+n[1].st:C
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:1
+
+State 70:
+n[1].st:T
+n[1].data:2
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 71:
+n[1].st:I
+n[1].data:2
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 72:
+n[1].st:I
+n[1].data:2
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 73:
+n[1].st:E
+n[1].data:1
+n[2].st:I
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 74:
+n[1].st:C
+n[1].data:1
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 75:
+n[1].st:E
+n[1].data:2
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:2
+memDATA:2
+
+State 76:
+n[1].st:T
+n[1].data:1
+n[2].st:C
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 77:
+n[1].st:T
+n[1].data:1
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:2
+
+State 78:
+n[1].st:I
+n[1].data:1
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 79:
+n[1].st:E
+n[1].data:2
+n[2].st:I
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 80:
+n[1].st:C
+n[1].data:2
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 81:
+n[1].st:E
+n[1].data:1
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:1
+memDATA:1
+
+State 82:
+n[1].st:T
+n[1].data:2
+n[2].st:C
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 83:
+n[1].st:T
+n[1].data:2
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:1
+
+State 84:
+n[1].st:I
+n[1].data:2
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 85:
+n[1].st:E
+n[1].data:1
+n[2].st:T
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 86:
+n[1].st:T
+n[1].data:1
+n[2].st:E
+n[2].data:1
+x:false
+auxDATA:1
+memDATA:2
+
+State 87:
+n[1].st:E
+n[1].data:2
+n[2].st:T
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+State 88:
+n[1].st:T
+n[1].data:2
+n[2].st:E
+n[2].data:2
+x:false
+auxDATA:2
+memDATA:1
+
+
+==========================================================================
+
+Status:
+
+	No error found.
+
+State Space Explored:
+
+	88 states, 208 rules fired in 7.06s.
+

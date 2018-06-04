@@ -1,0 +1,16 @@
+rule_1:   state[i] = E -> state[j] != E
+rule_2:   state[j] = E -> state[i] != E
+rule_3:   state[i] = M -> state[j] != M
+rule_4:   state[j] = M -> state[i] != M
+rule_5:   state[i] = E -> state[j] != M
+rule_6:   state[j] = E -> state[i] != M
+rule_7:   state[i] = E -> state[j] != S
+rule_8:   state[j] = E -> state[i] != S
+rule_9:   state[i] = S -> state[j] != E
+rule_10:   state[j] = S -> state[i] != E
+rule_11:   state[i] = M -> state[j] != S
+rule_12:   state[j] = M -> state[i] != S
+rule_13:   state[i] = M -> state[j] != E
+rule_14:   state[j] = M -> state[i] != E
+rule_15:   state[i] = S -> state[j] != M
+rule_16:   state[j] = S -> state[i] != M

@@ -1,0 +1,736 @@
+rule_1: a[1] = M & a[2] != E -> a[2] != S
+rule_2: a[1] != E & a[2] = M -> a[1] != OSTATUS
+rule_3: a[1] = I & a[2] = M -> a[1] != M
+rule_4: a[2] != I & a[2] = M -> a[1] = I
+rule_5: a[2] = E & a[2] != OSTATUS -> a[2] != M
+rule_6: a[1] = M & a[2] != OSTATUS -> a[2] != E
+rule_7: a[1] = I & a[2] = S -> a[2] != I
+rule_8: a[1] = E & a[1] != I -> a[2] != M
+rule_9: a[2] = I & a[1] = I -> a[2] != S
+rule_10: a[2] != OSTATUS & a[1] = E -> a[2] != M
+rule_11: a[1] != S & a[1] = E -> a[2] != OSTATUS
+rule_12: a[2] != I & a[1] != I -> a[1] != E
+rule_13: a[1] = M & a[1] != E -> a[2] = I
+rule_14: a[1] = M -> a[2] != M
+rule_15: a[2] != E & a[1] = OSTATUS -> a[2] != M
+rule_16: a[1] != M & a[1] = E -> a[1] != I
+rule_17: a[2] = S & a[1] != I -> a[2] != I
+rule_18: a[2] != E & a[1] = OSTATUS -> a[2] != OSTATUS
+rule_19: a[1] = S & a[2] != I -> a[1] != M
+rule_20: a[2] != I & a[2] = M -> a[1] != M
+rule_21: a[2] = OSTATUS -> a[2] != S
+rule_22: a[1] = I & a[2] = M -> a[1] != OSTATUS
+rule_23: a[2] != OSTATUS & a[1] = OSTATUS -> a[1] != I
+rule_24: a[2] = I & a[1] != I -> a[2] != OSTATUS
+rule_25: a[2] != E & a[2] = S -> a[2] != OSTATUS
+rule_26: a[1] != OSTATUS & a[2] = OSTATUS -> a[2] != M
+rule_27: a[1] = M & a[2] != OSTATUS -> a[2] = I
+rule_28: a[2] != E & a[2] = S -> a[2] != M
+rule_29: a[1] != E & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_30: a[1] = OSTATUS -> a[1] != M
+rule_31: a[2] != S & a[2] != I -> a[1] != E
+rule_32: a[1] = M & a[1] != S -> a[1] != I
+rule_33: a[1] = S & a[2] != OSTATUS -> a[2] != E
+rule_34: a[2] != S & a[2] = OSTATUS -> a[2] != M
+rule_35: a[2] != M & a[1] = OSTATUS -> a[2] != OSTATUS
+rule_36: a[1] = S & a[2] != OSTATUS -> a[1] != E
+rule_37: a[1] = I & a[2] = OSTATUS -> a[1] != E
+rule_38: a[2] != I & a[2] = S -> a[2] != E
+rule_39: a[1] = OSTATUS -> a[2] != OSTATUS
+rule_40: a[1] = S & a[2] != S -> a[2] != E
+rule_41: a[1] = M & a[2] != E -> a[1] != OSTATUS
+rule_42: a[1] = S & a[1] != I -> a[1] != M
+rule_43: a[1] != OSTATUS & a[1] = E -> a[1] != I
+rule_44: a[2] != S & a[1] = I -> a[1] != S
+rule_45: a[2] != I -> a[1] != M
+rule_46: a[2] != OSTATUS & a[1] = OSTATUS -> a[2] != M
+rule_47: a[2] != E & a[1] = I -> a[1] != M
+rule_48: a[2] != S & a[2] != I -> a[1] != OSTATUS
+rule_49: a[1] != S & a[1] = E -> a[1] != M
+rule_50: a[2] != I & a[2] = M -> a[1] != E
+rule_51: a[2] != I & a[1] = OSTATUS -> a[1] != M
+rule_52: a[2] != S & a[2] = M -> a[2] != OSTATUS
+rule_53: a[2] != E & a[2] = M -> a[1] != S
+rule_54: a[2] = E & a[2] != M -> a[1] != E
+rule_55: a[2] = E & a[1] != S -> a[1] = I
+rule_56: a[2] = M -> a[1] = I
+rule_57: a[1] = S & a[2] = OSTATUS -> a[2] != I
+rule_58: a[2] != I & a[1] = OSTATUS -> a[2] != OSTATUS
+rule_59: a[2] != OSTATUS & a[2] = M -> a[1] = I
+rule_60: a[1] = M & a[2] != E -> a[1] != S
+rule_61: a[1] = M & a[2] != M -> a[2] != OSTATUS
+rule_62: a[1] = S & a[2] = I -> a[2] != S
+rule_63: a[1] != M & a[2] = S -> a[2] != I
+rule_64: a[2] = E & a[2] != S -> a[2] != OSTATUS
+rule_65: a[1] = S & a[1] != I -> a[2] != E
+rule_66: a[1] = S -> a[1] != M
+rule_67: a[1] != OSTATUS & a[2] = I -> a[2] != OSTATUS
+rule_68: a[1] != E & a[1] = OSTATUS -> a[1] != I
+rule_69: a[1] = S & a[1] != M -> a[2] != E
+rule_70: a[1] = M & a[1] != S -> a[2] != M
+rule_71: a[2] = E & a[1] != E -> a[2] != S
+rule_72: a[2] != M & a[1] = I -> a[1] != S
+rule_73: a[2] != S & a[1] != I -> a[2] != E
+rule_74: a[1] = E & a[1] != I -> a[2] != OSTATUS
+rule_75: a[2] = E & a[1] != M -> a[1] != S
+rule_76: a[1] = S -> a[2] != M
+rule_77: a[2] = E & a[2] != M -> a[1] = I
+rule_78: a[1] != M & a[1] = E -> a[2] != S
+rule_79: a[1] != S & a[2] = OSTATUS -> a[2] != S
+rule_80: a[1] != E & a[2] = OSTATUS -> a[2] != I
+rule_81: a[2] != OSTATUS & a[1] != I -> a[2] != E
+rule_82: a[1] = M & a[1] != E -> a[2] != M
+rule_83: a[2] = I & a[1] = E -> a[2] != M
+rule_84: a[2] != M & a[1] != I -> a[2] != E
+rule_85: a[1] != E & a[2] = OSTATUS -> a[2] != S
+rule_86: a[2] = E & a[1] != E -> a[2] != M
+rule_87: a[2] != I & a[2] = OSTATUS -> a[2] != S
+rule_88: a[2] = E & a[2] != M -> a[2] != S
+rule_89: a[2] != I & a[2] = S -> a[1] != E
+rule_90: a[2] = I & a[1] = I -> a[1] != M
+rule_91: a[2] != M & a[1] = E -> a[1] != M
+rule_92: a[2] != E & a[1] = OSTATUS -> a[1] != I
+rule_93: a[2] != I & a[1] != S -> a[1] != E
+rule_94: a[1] = M -> a[1] != S
+rule_95: a[2] = E & a[2] != I -> a[1] = I
+rule_96: a[2] = E -> a[2] != S
+rule_97: a[1] = M & a[1] != I -> a[2] != OSTATUS
+rule_98: a[2] = E & a[1] != OSTATUS -> a[2] != S
+rule_99: a[1] = M & a[1] != I -> a[1] != E
+rule_100: a[2] = I & a[1] = OSTATUS -> a[1] != I
+rule_101: a[1] = S & a[2] != M -> a[1] != OSTATUS
+rule_102: a[2] = E & a[1] = I -> a[1] != M
+rule_103: a[2] != M & a[1] = OSTATUS -> a[1] != I
+rule_104: a[2] != M & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_105: a[2] = I & a[1] = I -> a[2] != OSTATUS
+rule_106: a[1] != M & a[1] = OSTATUS -> a[2] != E
+rule_107: a[2] = OSTATUS -> a[2] != I
+rule_108: a[2] != I & a[2] = S -> a[2] != M
+rule_109: a[2] != OSTATUS & a[2] = M -> a[2] != I
+rule_110: a[2] != S & a[1] = E -> a[2] != M
+rule_111: a[1] = M -> a[1] != E
+rule_112: a[2] != E & a[1] = I -> a[1] != E
+rule_113: a[1] = S & a[1] != OSTATUS -> a[1] != E
+rule_114: a[1] != OSTATUS & a[1] = I -> a[1] != S
+rule_115: a[1] = S & a[2] != E -> a[1] != I
+rule_116: a[1] != E & a[2] = OSTATUS -> a[2] != E
+rule_117: a[1] = M & a[1] != E -> a[1] != S
+rule_118: a[1] != I -> a[2] != E
+rule_119: a[2] != I & a[2] != E -> a[1] != E
+rule_120: a[2] != OSTATUS & a[1] = OSTATUS -> a[1] != S
+rule_121: a[2] != I & a[1] != I -> a[2] != M
+rule_122: a[2] = E & a[1] != S -> a[2] != OSTATUS
+rule_123: a[1] = M & a[2] != M -> a[1] != OSTATUS
+rule_124: a[2] = E & a[2] != I -> a[2] != M
+rule_125: a[2] = E & a[2] != OSTATUS -> a[1] != M
+rule_126: a[2] != M & a[2] = S -> a[1] != M
+rule_127: a[1] = M & a[2] != M -> a[1] != I
+rule_128: a[1] != E & a[2] = M -> a[1] != M
+rule_129: a[2] = E -> a[1] != S
+rule_130: a[1] = OSTATUS & a[1] != S -> a[2] != E
+rule_131: a[2] = E & a[2] != M -> a[2] != OSTATUS
+rule_132: a[1] = E -> a[1] != S
+rule_133: a[1] = S -> a[1] != OSTATUS
+rule_134: a[2] = OSTATUS & a[1] != I -> a[2] != E
+rule_135: a[2] = I & a[1] != S -> a[2] != M
+rule_136: a[1] != E & a[2] = OSTATUS -> a[2] != M
+rule_137: a[2] != M & a[2] = S -> a[2] != E
+rule_138: a[2] != S & a[1] = OSTATUS -> a[1] != E
+rule_139: a[1] = I & a[2] = OSTATUS -> a[2] != S
+rule_140: a[2] = I & a[1] != E -> a[2] != E
+rule_141: a[1] = S & a[2] = S -> a[2] != I
+rule_142: a[1] = E -> a[2] != OSTATUS
+rule_143: a[1] != OSTATUS & a[1] = M -> a[1] != I
+rule_144: a[2] != OSTATUS & a[2] = S -> a[1] != E
+rule_145: a[1] != E & a[1] = OSTATUS -> a[1] != M
+rule_146: a[1] = E & a[1] != I -> a[1] != S
+rule_147: a[2] = E -> a[2] != I
+rule_148: a[2] != S & a[1] = OSTATUS -> a[2] != M
+rule_149: a[1] != M & a[1] = E -> a[2] != E
+rule_150: a[2] != I & a[2] = M -> a[2] != S
+rule_151: a[1] != E & a[1] = I -> a[1] != M
+rule_152: a[2] = I & a[1] != S -> a[2] != E
+rule_153: a[1] = S & a[2] != I -> a[1] != E
+rule_154: a[1] = OSTATUS & a[2] = S -> a[2] != M
+rule_155: a[1] = I & a[2] = OSTATUS -> a[2] != I
+rule_156: a[1] = M & a[1] != I -> a[2] != E
+rule_157: a[2] != OSTATUS & a[1] = E -> a[1] != M
+rule_158: a[1] != M & a[1] = I -> a[1] != E
+rule_159: a[2] = I & a[1] != I -> a[2] != M
+rule_160: a[1] = M & a[2] = I -> a[2] != S
+rule_161: a[2] != S & a[1] = I -> a[1] != OSTATUS
+rule_162: a[1] != M & a[1] = I -> a[1] != S
+rule_163: a[2] != E & a[2] = M -> a[1] != E
+rule_164: a[2] = E & a[2] != I -> a[1] != S
+rule_165: a[2] != S & a[2] = I -> a[2] != M
+rule_166: a[2] != S & a[2] = M -> a[2] != E
+rule_167: a[1] = OSTATUS & a[2] = S -> a[1] != I
+rule_168: a[2] != OSTATUS & a[1] = E -> a[2] != S
+rule_169: a[1] != S & a[2] = M -> a[1] != OSTATUS
+rule_170: a[2] = I & a[1] != M -> a[2] != OSTATUS
+rule_171: a[2] != I & a[2] = OSTATUS -> a[2] != M
+rule_172: a[2] != I & a[1] != I -> a[2] != E
+rule_173: a[1] != S & a[2] = M -> a[1] = I
+rule_174: a[2] = OSTATUS & a[1] != I -> a[2] != M
+rule_175: a[2] = OSTATUS & a[1] != I -> a[1] != E
+rule_176: a[2] = E & a[1] != OSTATUS -> a[1] != E
+rule_177: a[2] != I & a[1] = OSTATUS -> a[2] != E
+rule_178: a[1] != S & a[2] = M -> a[2] != I
+rule_179: a[2] != I & a[1] = OSTATUS -> a[1] != S
+rule_180: a[1] = S & a[1] != OSTATUS -> a[2] != E
+rule_181: a[1] != S & a[2] = M -> a[1] != E
+rule_182: a[1] != OSTATUS & a[2] = OSTATUS -> a[2] != I
+rule_183: a[2] = I & a[1] != I -> a[2] != S
+rule_184: a[2] = E & a[1] != OSTATUS -> a[2] != OSTATUS
+rule_185: a[1] = OSTATUS & a[1] != I -> a[2] != M
+rule_186: a[1] = M & a[1] != E -> a[1] != I
+rule_187: a[1] != OSTATUS & a[1] = M -> a[2] = I
+rule_188: a[1] != OSTATUS & a[1] != I -> a[2] != M
+rule_189: a[2] != E & a[2] = OSTATUS -> a[1] != M
+rule_190: a[1] = E & a[1] != I -> a[1] != OSTATUS
+rule_191: a[1] = OSTATUS & a[2] = S -> a[1] != E
+rule_192: a[1] != M & a[2] = M -> a[2] != S
+rule_193: a[2] = S -> a[2] != M
+rule_194: a[1] = S & a[2] != I -> a[1] != OSTATUS
+rule_195: a[1] != OSTATUS & a[2] = OSTATUS -> a[1] != M
+rule_196: a[2] = I -> a[2] != S
+rule_197: a[1] != M & a[2] = M -> a[1] != OSTATUS
+rule_198: a[2] = I -> a[2] != E
+rule_199: a[1] != S & a[2] = S -> a[2] != I
+rule_200: a[2] != S & a[1] = I -> a[1] != M
+rule_201: a[1] = M -> a[2] = I
+rule_202: a[1] != OSTATUS & a[2] = OSTATUS -> a[2] != E
+rule_203: a[2] = S & a[1] != I -> a[1] != E
+rule_204: a[1] = I & a[2] = S -> a[2] != M
+rule_205: a[1] != E & a[2] = M -> a[2] != S
+rule_206: a[2] != E & a[2] = OSTATUS -> a[1] != E
+rule_207: a[2] != S & a[1] = OSTATUS -> a[2] = I
+rule_208: a[1] != OSTATUS & a[1] = I -> a[1] != M
+rule_209: a[2] = I & a[1] = E -> a[1] != S
+rule_210: a[2] != S & a[1] = E -> a[1] != S
+rule_211: a[2] != OSTATUS & a[1] = E -> a[1] != S
+rule_212: a[2] != S & a[1] = E -> a[2] = I
+rule_213: a[1] != OSTATUS & a[1] = M -> a[2] != M
+rule_214: a[2] = E & a[1] != OSTATUS -> a[1] != M
+rule_215: a[2] = I & a[1] = E -> a[2] != E
+rule_216: a[2] = E & a[2] != I -> a[1] != E
+rule_217: a[1] = M & a[1] != S -> a[2] != S
+rule_218: a[1] != S & a[1] != I -> a[2] != M
+rule_219: a[1] = S & a[1] != OSTATUS -> a[1] != M
+rule_220: a[1] != OSTATUS & a[2] = M -> a[2] != I
+rule_221: a[1] = I & a[2] = S -> a[1] != OSTATUS
+rule_222: a[1] = I & a[2] = OSTATUS -> a[1] != S
+rule_223: a[2] != I & a[1] = OSTATUS -> a[1] != E
+rule_224: a[1] != I -> a[2] != M
+rule_225: a[2] != S & a[2] = M -> a[1] != OSTATUS
+rule_226: a[1] = M & a[1] != S -> a[1] != OSTATUS
+rule_227: a[2] != OSTATUS & a[2] = M -> a[1] != M
+rule_228: a[1] != M & a[2] = OSTATUS -> a[2] != S
+rule_229: a[2] = I & a[1] != M -> a[2] != E
+rule_230: a[2] != S & a[1] = M -> a[1] != E
+rule_231: a[1] = M & a[2] != OSTATUS -> a[2] != M
+rule_232: a[1] = S & a[1] != I -> a[1] != E
+rule_233: a[2] = E & a[1] != E -> a[2] != OSTATUS
+rule_234: a[2] = I & a[1] = OSTATUS -> a[1] != S
+rule_235: a[1] = E -> a[1] != OSTATUS
+rule_236: a[1] = M -> a[1] != OSTATUS
+rule_237: a[2] != E & a[2] = S -> a[1] != M
+rule_238: a[1] = S & a[2] != OSTATUS -> a[1] != M
+rule_239: a[2] = E & a[1] != M -> a[1] != OSTATUS
+rule_240: a[1] = M & a[2] != OSTATUS -> a[1] != S
+rule_241: a[2] != I & a[2] = M -> a[1] != S
+rule_242: a[2] = E -> a[2] != M
+rule_243: a[2] = M -> a[2] != S
+rule_244: a[1] = S & a[1] != I -> a[2] != M
+rule_245: a[1] = S & a[2] = I -> a[1] != OSTATUS
+rule_246: a[2] != I & a[1] = I -> a[1] != OSTATUS
+rule_247: a[1] != OSTATUS & a[2] = M -> a[1] != M
+rule_248: a[1] = I & a[2] = M -> a[1] != S
+rule_249: a[1] != M & a[1] = E -> a[1] != OSTATUS
+rule_250: a[2] = I & a[2] != M -> a[2] != OSTATUS
+rule_251: a[2] = E & a[2] != OSTATUS -> a[1] != OSTATUS
+rule_252: a[2] = I & a[2] != OSTATUS -> a[2] != M
+rule_253: a[1] = I & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_254: a[2] = E & a[1] = I -> a[2] != M
+rule_255: a[1] = S & a[2] = OSTATUS -> a[1] != E
+rule_256: a[2] != I & a[2] != M -> a[1] != E
+rule_257: a[2] != I & a[1] = OSTATUS -> a[1] != I
+rule_258: a[2] = S & a[1] != I -> a[2] != M
+rule_259: a[1] != M & a[2] = OSTATUS -> a[2] != E
+rule_260: a[1] = M & a[2] = I -> a[2] != E
+rule_261: a[2] = E & a[1] != S -> a[1] != OSTATUS
+rule_262: a[1] != E & a[2] = M -> a[2] != I
+rule_263: a[2] != S & a[1] = E -> a[1] != OSTATUS
+rule_264: a[2] != E & a[1] = E -> a[2] != OSTATUS
+rule_265: a[1] = M & a[2] != M -> a[2] != S
+rule_266: a[2] != E & a[1] = OSTATUS -> a[1] != S
+rule_267: a[2] = OSTATUS -> a[2] != E
+rule_268: a[2] != M & a[1] = I -> a[1] != M
+rule_269: a[1] = M & a[2] = I -> a[2] != OSTATUS
+rule_270: a[1] != S & a[1] = E -> a[2] = I
+rule_271: a[1] = S & a[2] != M -> a[1] != M
+rule_272: a[2] != E & a[1] = E -> a[1] != M
+rule_273: a[1] = S & a[1] != E -> a[1] != OSTATUS
+rule_274: a[2] != OSTATUS & a[2] = S -> a[2] != E
+rule_275: a[1] != M & a[1] = OSTATUS -> a[2] != OSTATUS
+rule_276: a[2] = E & a[1] != E -> a[1] = I
+rule_277: a[1] = OSTATUS & a[2] = S -> a[2] != OSTATUS
+rule_278: a[2] = E & a[1] != E -> a[1] != M
+rule_279: a[2] != OSTATUS & a[1] = I -> a[1] != S
+rule_280: a[1] = OSTATUS & a[2] = S -> a[1] != M
+rule_281: a[1] = OSTATUS & a[1] != I -> a[2] != E
+rule_282: a[1] != E & a[1] = OSTATUS -> a[1] != S
+rule_283: a[2] != OSTATUS & a[1] = OSTATUS -> a[1] != E
+rule_284: a[1] = OSTATUS & a[2] = S -> a[2] != I
+rule_285: a[1] != OSTATUS & a[2] = OSTATUS -> a[1] != E
+rule_286: a[2] != I & a[1] != S -> a[1] != M
+rule_287: a[2] = I & a[1] != M -> a[2] != S
+rule_288: a[1] != M & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_289: a[1] = S & a[2] != M -> a[2] != E
+rule_290: a[2] = I & a[2] != OSTATUS -> a[2] != E
+rule_291: a[2] = E & a[2] != S -> a[1] != E
+rule_292: a[2] = E -> a[1] = I
+rule_293: a[2] = E & a[1] = I -> a[2] != S
+rule_294: a[1] = M & a[2] != E -> a[2] = I
+rule_295: a[2] = OSTATUS & a[1] != I -> a[1] != OSTATUS
+rule_296: a[1] = S & a[2] = OSTATUS -> a[1] != M
+rule_297: a[1] != M & a[2] = M -> a[1] = I
+rule_298: a[1] = S & a[1] != E -> a[2] != M
+rule_299: a[2] != E & a[2] = M -> a[1] != M
+rule_300: a[2] != S & a[1] = OSTATUS -> a[1] != S
+rule_301: a[2] = I & a[1] = E -> a[1] != OSTATUS
+rule_302: a[1] != M & a[1] != I -> a[2] != E
+rule_303: a[2] != E & a[1] = I -> a[1] != S
+rule_304: a[1] != M & a[1] != I -> a[2] != M
+rule_305: a[2] != M & a[1] = OSTATUS -> a[2] != E
+rule_306: a[1] = OSTATUS -> a[1] != I
+rule_307: a[2] != S & a[1] = OSTATUS -> a[2] != E
+rule_308: a[1] != S & a[2] = M -> a[1] != M
+rule_309: a[1] = OSTATUS -> a[2] != E
+rule_310: a[2] = E & a[2] != I -> a[1] != M
+rule_311: a[2] != M & a[2] = OSTATUS -> a[1] != M
+rule_312: a[2] != I & a[2] = S -> a[1] != M
+rule_313: a[1] != M & a[1] = E -> a[2] != OSTATUS
+rule_314: a[2] != M & a[1] = E -> a[2] != OSTATUS
+rule_315: a[1] != M & a[2] = S -> a[2] != E
+rule_316: a[2] = E & a[1] = I -> a[1] != OSTATUS
+rule_317: a[1] != OSTATUS & a[2] = M -> a[1] = I
+rule_318: a[1] != M & a[2] = OSTATUS -> a[2] != I
+rule_319: a[2] != OSTATUS & a[1] = E -> a[1] != I
+rule_320: a[2] = OSTATUS -> a[1] != M
+rule_321: a[2] != I & a[2] = M -> a[2] != E
+rule_322: a[2] != E & a[1] = OSTATUS -> a[1] != M
+rule_323: a[2] != M & a[1] = E -> a[1] != I
+rule_324: a[1] = M & a[1] != S -> a[2] != OSTATUS
+rule_325: a[2] = E & a[1] != M -> a[2] != OSTATUS
+rule_326: a[1] != OSTATUS & a[1] = M -> a[1] != E
+rule_327: a[2] = E -> a[1] != M
+rule_328: a[1] = S & a[2] != OSTATUS -> a[1] != I
+rule_329: a[1] != OSTATUS & a[1] = M -> a[2] != OSTATUS
+rule_330: a[1] != E & a[1] = I -> a[1] != S
+rule_331: a[1] = S & a[2] != S -> a[1] != E
+rule_332: a[2] != OSTATUS & a[1] = OSTATUS -> a[2] != E
+rule_333: a[2] != S & a[2] = OSTATUS -> a[2] != E
+rule_334: a[2] != E & a[1] = E -> a[1] != OSTATUS
+rule_335: a[2] = E & a[1] != M -> a[2] != S
+rule_336: a[1] != S & a[1] = I -> a[1] != E
+rule_337: a[2] = E & a[1] = I -> a[2] != I
+rule_338: a[1] != OSTATUS & a[2] = I -> a[2] != S
+rule_339: a[1] = M & a[2] != E -> a[2] != M
+rule_340: a[2] = M -> a[2] != I
+rule_341: a[1] = M & a[1] != S -> a[1] != E
+rule_342: a[2] != S & a[2] = M -> a[2] != I
+rule_343: a[1] = M -> a[2] != E
+rule_344: a[2] != S & a[1] = E -> a[1] != I
+rule_345: a[1] = S & a[1] != I -> a[1] != OSTATUS
+rule_346: a[2] = E & a[1] != S -> a[2] != I
+rule_347: a[1] != OSTATUS & a[2] = I -> a[2] != E
+rule_348: a[1] = I & a[2] = S -> a[1] != S
+rule_349: a[1] = S & a[1] != M -> a[1] != OSTATUS
+rule_350: a[1] = I & a[2] = S -> a[1] != E
+rule_351: a[2] != M & a[1] = OSTATUS -> a[1] != E
+rule_352: a[1] = M & a[1] != I -> a[1] != OSTATUS
+rule_353: a[1] = OSTATUS & a[1] != S -> a[2] != M
+rule_354: a[1] = M & a[2] = I -> a[1] != I
+rule_355: a[2] = I & a[1] != E -> a[2] != S
+rule_356: a[1] != M & a[2] = OSTATUS -> a[1] != E
+rule_357: a[2] != S & a[2] != I -> a[1] != M
+rule_358: a[1] = M -> a[1] != I
+rule_359: a[1] = E -> a[2] = I
+rule_360: a[2] = I & a[2] != E -> a[2] != M
+rule_361: a[1] != M & a[2] = M -> a[2] != I
+rule_362: a[1] != S & a[1] = E -> a[2] != E
+rule_363: a[1] = M & a[1] != S -> a[2] = I
+rule_364: a[2] = OSTATUS & a[1] != I -> a[1] != M
+rule_365: a[1] != M & a[2] = S -> a[2] != M
+rule_366: a[2] != I & a[2] = OSTATUS -> a[1] != M
+rule_367: a[1] != S & a[2] = OSTATUS -> a[2] != M
+rule_368: a[2] != M & a[1] = I -> a[1] != OSTATUS
+rule_369: a[1] = S & a[2] = OSTATUS -> a[2] != E
+rule_370: a[2] = E & a[2] != S -> a[2] != I
+rule_371: a[2] != OSTATUS & a[2] = M -> a[1] != S
+rule_372: a[1] = S & a[2] = I -> a[1] != E
+rule_373: a[2] = E & a[1] != E -> a[1] != OSTATUS
+rule_374: a[1] != M & a[1] = OSTATUS -> a[2] != M
+rule_375: a[2] = E & a[1] != E -> a[1] != S
+rule_376: a[1] = OSTATUS -> a[2] != M
+rule_377: a[2] = I & a[1] = OSTATUS -> a[2] != OSTATUS
+rule_378: a[2] = S -> a[1] != M
+rule_379: a[2] = I & a[2] != M -> a[2] != S
+rule_380: a[1] = E & a[1] != I -> a[1] != M
+rule_381: a[1] != OSTATUS & a[2] = M -> a[1] != S
+rule_382: a[1] != M & a[2] = M -> a[2] != E
+rule_383: a[1] = S & a[2] = I -> a[1] != M
+rule_384: a[2] = I & a[1] != E -> a[2] != OSTATUS
+rule_385: a[2] = I -> a[2] != OSTATUS
+rule_386: a[2] = I & a[1] = OSTATUS -> a[2] != M
+rule_387: a[1] != M & a[1] = E -> a[2] = I
+rule_388: a[1] != E & a[1] = OSTATUS -> a[2] != E
+rule_389: a[1] = OSTATUS & a[2] = S -> a[1] != S
+rule_390: a[2] != S & a[2] = OSTATUS -> a[2] != I
+rule_391: a[2] != E & a[2] = M -> a[1] != OSTATUS
+rule_392: a[1] = S & a[2] != E -> a[2] != M
+rule_393: a[1] != OSTATUS & a[2] = I -> a[2] != M
+rule_394: a[2] = E & a[2] != S -> a[1] != M
+rule_395: a[1] = S -> a[2] != E
+rule_396: a[2] != S & a[2] = OSTATUS -> a[1] != M
+rule_397: a[1] = S & a[2] = S -> a[1] != I
+rule_398: a[1] != E & a[1] = OSTATUS -> a[2] != OSTATUS
+rule_399: a[1] = M & a[2] != OSTATUS -> a[1] != E
+rule_400: a[1] = I & a[2] = M -> a[2] != OSTATUS
+rule_401: a[2] = E & a[1] != M -> a[1] != E
+rule_402: a[2] = E & a[2] != I -> a[2] != OSTATUS
+rule_403: a[2] != E & a[1] != I -> a[2] != M
+rule_404: a[2] != OSTATUS & a[1] != I -> a[2] != M
+rule_405: a[2] = M -> a[1] != OSTATUS
+rule_406: a[2] = E & a[2] != S -> a[1] != S
+rule_407: a[1] != S & a[1] != I -> a[2] != E
+rule_408: a[1] = S & a[2] = S -> a[2] != M
+rule_409: a[2] != I & a[1] != I -> a[1] != M
+rule_410: a[1] = I & a[2] = S -> a[2] != OSTATUS
+rule_411: a[1] = M & a[2] != M -> a[1] != E
+rule_412: a[1] = M & a[2] = I -> a[2] != M
+rule_413: a[2] = E -> a[1] != OSTATUS
+rule_414: a[1] = M & a[2] != M -> a[2] != E
+rule_415: a[1] = S & a[2] != M -> a[1] != E
+rule_416: a[2] != E & a[1] = I -> a[1] != OSTATUS
+rule_417: a[1] = S & a[2] = OSTATUS -> a[2] != S
+rule_418: a[2] != M & a[1] = E -> a[2] != S
+rule_419: a[2] != E & a[2] = S -> a[1] != E
+rule_420: a[1] != M & a[2] = OSTATUS -> a[2] != M
+rule_421: a[1] = M & a[1] != S -> a[2] != E
+rule_422: a[2] = E -> a[2] != OSTATUS
+rule_423: a[2] != OSTATUS & a[1] = E -> a[2] != E
+rule_424: a[1] = M & a[2] != E -> a[1] != E
+rule_425: a[1] != E & a[2] = S -> a[2] != E
+rule_426: a[2] != OSTATUS & a[1] = E -> a[1] != OSTATUS
+rule_427: a[2] != M & a[2] = S -> a[2] != OSTATUS
+rule_428: a[2] != E & a[2] = S -> a[2] != I
+rule_429: a[2] = E & a[2] != OSTATUS -> a[1] != S
+rule_430: a[1] = OSTATUS & a[1] != S -> a[1] != M
+rule_431: a[2] = S & a[1] != I -> a[2] != OSTATUS
+rule_432: a[1] = M & a[2] != OSTATUS -> a[1] != OSTATUS
+rule_433: a[2] != M & a[1] = E -> a[1] != OSTATUS
+rule_434: a[2] != I & a[2] = S -> a[2] != OSTATUS
+rule_435: a[1] = M & a[2] = I -> a[1] != S
+rule_436: a[1] = S & a[2] != E -> a[1] != E
+rule_437: a[1] != OSTATUS & a[2] != I -> a[1] != E
+rule_438: a[1] = I & a[2] = S -> a[1] != M
+rule_439: a[2] = E & a[1] != M -> a[1] = I
+rule_440: a[2] != S & a[2] = M -> a[1] = I
+rule_441: a[2] = M -> a[1] != M
+rule_442: a[2] != E & a[1] = OSTATUS -> a[1] != E
+rule_443: a[1] != M & a[2] = M -> a[1] != E
+rule_444: a[1] != S & a[2] = M -> a[2] != S
+rule_445: a[2] = E & a[1] != OSTATUS -> a[1] != S
+rule_446: a[1] != S & a[2] = M -> a[2] != E
+rule_447: a[1] = S & a[1] != M -> a[1] != I
+rule_448: a[2] = I & a[1] = OSTATUS -> a[2] != E
+rule_449: a[1] = S & a[2] != E -> a[1] != M
+rule_450: a[2] != S & a[1] = OSTATUS -> a[1] != I
+rule_451: a[2] = E & a[2] != OSTATUS -> a[2] != I
+rule_452: a[1] = S & a[2] = S -> a[1] != M
+rule_453: a[2] = I & a[1] = OSTATUS -> a[2] != S
+rule_454: a[1] = I -> a[1] != E
+rule_455: a[1] != S & a[1] = E -> a[2] != S
+rule_456: a[2] = E & a[2] != M -> a[1] != M
+rule_457: a[1] = OSTATUS & a[1] != S -> a[1] != E
+rule_458: a[1] = OSTATUS -> a[1] != S
+rule_459: a[1] = S & a[2] != E -> a[1] != OSTATUS
+rule_460: a[2] = I & a[1] != M -> a[2] != M
+rule_461: a[1] = M & a[2] = I -> a[1] != E
+rule_462: a[2] = S -> a[2] != E
+rule_463: a[1] = I & a[2] = M -> a[2] != I
+rule_464: a[2] != M & a[1] = OSTATUS -> a[1] != M
+rule_465: a[2] != S & a[1] = M -> a[2] = I
+rule_466: a[1] != S & a[2] = S -> a[1] != E
+rule_467: a[1] != S & a[2] = OSTATUS -> a[2] != E
+rule_468: a[2] != E & a[2] = OSTATUS -> a[2] != M
+rule_469: a[1] != S & a[1] = I -> a[1] != OSTATUS
+rule_470: a[1] != M & a[1] = OSTATUS -> a[1] != S
+rule_471: a[1] = S & a[1] != E -> a[2] != E
+rule_472: a[2] != S & a[2] = M -> a[1] != E
+rule_473: a[1] = OSTATUS -> a[1] != E
+rule_474: a[2] = I & a[1] != I -> a[2] != E
+rule_475: a[2] != E & a[1] = E -> a[2] != S
+rule_476: a[1] = S & a[2] != S -> a[2] != M
+rule_477: a[2] = I & a[1] = I -> a[1] != OSTATUS
+rule_478: a[1] != OSTATUS & a[2] = S -> a[2] != M
+rule_479: a[2] != S & a[2] = OSTATUS -> a[1] != E
+rule_480: a[1] != OSTATUS & a[2] = S -> a[2] != E
+rule_481: a[2] != M & a[2] = OSTATUS -> a[2] != E
+rule_482: a[1] != M & a[2] = M -> a[1] != S
+rule_483: a[2] = I & a[1] = E -> a[1] != M
+rule_484: a[2] != M & a[2] = OSTATUS -> a[1] != E
+rule_485: a[1] = S & a[2] = I -> a[2] != E
+rule_486: a[1] != S & a[2] = OSTATUS -> a[1] != M
+rule_487: a[1] = S & a[2] = I -> a[2] != M
+rule_488: a[2] = I & a[2] != E -> a[2] != S
+rule_489: a[2] != E & a[1] = E -> a[2] != M
+rule_490: a[1] != E & a[2] = S -> a[2] != I
+rule_491: a[1] = S & a[2] = OSTATUS -> a[2] != M
+rule_492: a[2] != E & a[2] = M -> a[2] != S
+rule_493: a[2] != OSTATUS & a[1] = I -> a[1] != OSTATUS
+rule_494: a[2] = M -> a[1] != S
+rule_495: a[2] != OSTATUS & a[1] = OSTATUS -> a[1] != M
+rule_496: a[2] = I & a[1] != S -> a[2] != S
+rule_497: a[2] != S & a[2] = I -> a[2] != OSTATUS
+rule_498: a[2] = OSTATUS -> a[2] != M
+rule_499: a[1] != E & a[2] = M -> a[2] != OSTATUS
+rule_500: a[2] != S & a[1] != I -> a[2] != M
+rule_501: a[1] != E & a[2] = M -> a[1] = I
+rule_502: a[1] != OSTATUS & a[2] = OSTATUS -> a[2] != S
+rule_503: a[2] != E & a[2] = M -> a[2] != OSTATUS
+rule_504: a[1] != E & a[2] = M -> a[2] != E
+rule_505: a[2] != M & a[1] = E -> a[2] != E
+rule_506: a[1] != S & a[2] = S -> a[2] != OSTATUS
+rule_507: a[2] = I & a[1] = E -> a[1] != I
+rule_508: a[2] != S & a[1] = E -> a[1] != M
+rule_509: a[1] != OSTATUS & a[1] = E -> a[2] != M
+rule_510: a[1] = OSTATUS & a[1] != S -> a[2] != OSTATUS
+rule_511: a[1] = S & a[2] != OSTATUS -> a[1] != OSTATUS
+rule_512: a[1] != M & a[2] = S -> a[2] != OSTATUS
+rule_513: a[2] != S & a[1] = M -> a[1] != S
+rule_514: a[1] = M & a[1] != I -> a[1] != S
+rule_515: a[2] != E & a[2] = M -> a[2] != I
+rule_516: a[2] = I & a[2] != E -> a[2] != OSTATUS
+rule_517: a[2] != I & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_518: a[1] != OSTATUS & a[2] = M -> a[2] != S
+rule_519: a[2] = OSTATUS -> a[1] != E
+rule_520: a[2] != S & a[1] = OSTATUS -> a[1] != M
+rule_521: a[1] != OSTATUS & a[2] != I -> a[1] != M
+rule_522: a[1] != S & a[2] = OSTATUS -> a[1] != E
+rule_523: a[2] != E & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_524: a[2] != S & a[1] = E -> a[2] != E
+rule_525: a[1] != S & a[1] = E -> a[2] != M
+rule_526: a[2] != S & a[1] = E -> a[2] != OSTATUS
+rule_527: a[1] = S & a[1] != OSTATUS -> a[1] != I
+rule_528: a[1] = S & a[2] != I -> a[2] != E
+rule_529: a[1] = E -> a[2] != M
+rule_530: a[2] = E & a[2] != S -> a[1] = I
+rule_531: a[1] = S & a[2] = S -> a[1] != OSTATUS
+rule_532: a[1] != OSTATUS & a[1] = E -> a[2] != S
+rule_533: a[1] = M & a[2] != M -> a[2] = I
+rule_534: a[1] = M & a[1] != I -> a[2] != M
+rule_535: a[2] = E & a[1] != S -> a[1] != M
+rule_536: a[1] = S -> a[1] != E
+rule_537: a[1] = OSTATUS & a[1] != I -> a[1] != M
+rule_538: a[1] = M & a[2] != E -> a[1] != I
+rule_539: a[2] != I & a[1] != M -> a[1] != E
+rule_540: a[1] = I -> a[1] != S
+rule_541: a[1] = M & a[1] != I -> a[2] != S
+rule_542: a[1] != E & a[2] = S -> a[2] != OSTATUS
+rule_543: a[2] != I & a[2] = M -> a[1] != OSTATUS
+rule_544: a[1] = S & a[2] != S -> a[1] != I
+rule_545: a[2] = OSTATUS & a[1] != I -> a[2] != I
+rule_546: a[1] != M & a[1] = E -> a[2] != M
+rule_547: a[1] = M & a[1] != E -> a[1] != OSTATUS
+rule_548: a[2] != M & a[2] = OSTATUS -> a[2] != S
+rule_549: a[2] = I & a[1] = I -> a[2] != M
+rule_550: a[1] = S & a[2] != OSTATUS -> a[2] != M
+rule_551: a[1] = M & a[1] != E -> a[2] != OSTATUS
+rule_552: a[2] = S -> a[2] != I
+rule_553: a[1] = E & a[1] != I -> a[2] != S
+rule_554: a[2] = I & a[1] = OSTATUS -> a[1] != M
+rule_555: a[2] = E & a[1] != S -> a[1] != E
+rule_556: a[2] != I & a[2] = OSTATUS -> a[1] != E
+rule_557: a[1] != M & a[1] = I -> a[1] != OSTATUS
+rule_558: a[2] = E & a[1] = I -> a[1] != S
+rule_559: a[1] != S & a[1] = E -> a[1] != I
+rule_560: a[1] = M & a[2] != OSTATUS -> a[2] != S
+rule_561: a[2] = E & a[1] != OSTATUS -> a[2] != M
+rule_562: a[2] != S & a[1] = M -> a[2] != OSTATUS
+rule_563: a[1] != E & a[2] = S -> a[2] != M
+rule_564: a[2] = I & a[1] != S -> a[2] != OSTATUS
+rule_565: a[2] != OSTATUS & a[1] = I -> a[1] != M
+rule_566: a[1] = E -> a[1] != M
+rule_567: a[1] != E & a[1] != I -> a[2] != M
+rule_568: a[2] = E & a[1] = I -> a[2] != OSTATUS
+rule_569: a[1] = OSTATUS & a[1] != I -> a[1] != S
+rule_570: a[1] = M & a[1] != I -> a[2] = I
+rule_571: a[2] = I & a[1] = OSTATUS -> a[1] != E
+rule_572: a[2] != I & a[2] = OSTATUS -> a[2] != E
+rule_573: a[1] != OSTATUS & a[1] = E -> a[1] != M
+rule_574: a[1] != OSTATUS & a[1] = M -> a[1] != S
+rule_575: a[2] = E & a[1] != OSTATUS -> a[1] = I
+rule_576: a[2] = E & a[1] != S -> a[2] != S
+rule_577: a[1] != E & a[1] != I -> a[2] != E
+rule_578: a[1] != M & a[2] = S -> a[1] != E
+rule_579: a[1] = M & a[2] != E -> a[2] != OSTATUS
+rule_580: a[1] = S & a[2] = S -> a[2] != E
+rule_581: a[2] = E & a[2] != M -> a[2] != I
+rule_582: a[2] = E & a[1] != E -> a[2] != I
+rule_583: a[2] = E & a[1] != S -> a[2] != M
+rule_584: a[2] = E & a[2] != M -> a[1] != S
+rule_585: a[2] = E & a[2] != M -> a[1] != OSTATUS
+rule_586: a[1] = S & a[2] = OSTATUS -> a[1] != I
+rule_587: a[2] = I & a[1] = E -> a[2] != S
+rule_588: a[1] != S & a[1] = I -> a[1] != M
+rule_589: a[1] != E & a[1] = OSTATUS -> a[2] != M
+rule_590: a[2] != OSTATUS & a[2] = M -> a[1] != E
+rule_591: a[2] != M & a[1] = OSTATUS -> a[1] != S
+rule_592: a[1] != OSTATUS & a[2] = M -> a[1] != E
+rule_593: a[1] = I -> a[1] != M
+rule_594: a[2] != I & a[1] = I -> a[1] != E
+rule_595: a[2] = I & a[2] != M -> a[2] != E
+rule_596: a[1] = I & a[2] = M -> a[2] != S
+rule_597: a[1] = S -> a[1] != I
+rule_598: a[1] != OSTATUS & a[2] = M -> a[2] != OSTATUS
+rule_599: a[1] != M & a[1] = OSTATUS -> a[1] != I
+rule_600: a[1] = S & a[2] = S -> a[1] != E
+rule_601: a[1] = I & a[2] = OSTATUS -> a[2] != E
+rule_602: a[1] = E -> a[2] != E
+rule_603: a[2] = M -> a[2] != E
+rule_604: a[2] != E & a[1] = E -> a[2] = I
+rule_605: a[1] = E & a[1] != I -> a[2] != E
+rule_606: a[2] != M & a[2] = OSTATUS -> a[2] != I
+rule_607: a[1] != OSTATUS & a[1] = E -> a[2] = I
+rule_608: a[1] = S & a[1] != E -> a[1] != I
+rule_609: a[2] != OSTATUS & a[2] = M -> a[2] != S
+rule_610: a[1] != OSTATUS & a[2] = S -> a[2] != I
+rule_611: a[2] != OSTATUS & a[2] = S -> a[1] != M
+rule_612: a[2] != E & a[1] = E -> a[1] != S
+rule_613: a[1] = E -> a[2] != S
+rule_614: a[1] = M & a[2] != M -> a[1] != S
+rule_615: a[1] != E & a[1] = I -> a[1] != OSTATUS
+rule_616: a[2] != OSTATUS & a[1] = E -> a[2] = I
+rule_617: a[1] = I & a[2] = M -> a[2] != E
+rule_618: a[2] != I & a[2] = M -> a[2] != OSTATUS
+rule_619: a[1] != E & a[2] = M -> a[1] != S
+rule_620: a[1] != OSTATUS & a[1] = E -> a[2] != E
+rule_621: a[1] != S & a[2] = OSTATUS -> a[2] != I
+rule_622: a[1] = OSTATUS & a[1] != I -> a[1] != E
+rule_623: a[2] != S & a[1] = M -> a[2] != E
+rule_624: a[1] = S & a[2] != I -> a[2] != M
+rule_625: a[2] = E & a[2] != I -> a[1] != OSTATUS
+rule_626: a[2] != I & a[1] != E -> a[1] != M
+rule_627: a[2] != M & a[2] = S -> a[1] != E
+rule_628: a[2] != OSTATUS & a[2] = M -> a[1] != OSTATUS
+rule_629: a[2] = I & a[1] = I -> a[1] != S
+rule_630: a[2] = E -> a[1] != E
+rule_631: a[2] != E & a[1] = E -> a[1] != I
+rule_632: a[2] != M & a[1] = E -> a[1] != S
+rule_633: a[2] != S & a[1] = I -> a[1] != E
+rule_634: a[1] != OSTATUS & a[1] = E -> a[2] != OSTATUS
+rule_635: a[1] = M & a[1] != E -> a[2] != E
+rule_636: a[2] != E & a[2] = M -> a[1] = I
+rule_637: a[2] != I & a[2] != OSTATUS -> a[1] != E
+rule_638: a[1] != S & a[2] = S -> a[1] != M
+rule_639: a[1] = E & a[1] != I -> a[2] = I
+rule_640: a[1] = OSTATUS & a[2] = S -> a[2] != E
+rule_641: a[2] = E & a[1] != OSTATUS -> a[2] != I
+rule_642: a[2] != I & a[1] = OSTATUS -> a[2] != M
+rule_643: a[2] != OSTATUS & a[2] = S -> a[2] != I
+rule_644: a[2] = I & a[2] != OSTATUS -> a[2] != S
+rule_645: a[2] = OSTATUS -> a[1] != OSTATUS
+rule_646: a[2] = E & a[2] != OSTATUS -> a[1] != E
+rule_647: a[2] = E & a[2] != S -> a[2] != M
+rule_648: a[1] != S & a[2] = S -> a[2] != E
+rule_649: a[1] != OSTATUS & a[1] = M -> a[2] != S
+rule_650: a[1] = S & a[1] != M -> a[2] != M
+rule_651: a[2] != OSTATUS & a[1] = I -> a[1] != E
+rule_652: a[1] != OSTATUS & a[1] != I -> a[2] != E
+rule_653: a[1] = OSTATUS & a[1] != S -> a[1] != I
+rule_654: a[1] != M & a[1] = E -> a[1] != S
+rule_655: a[1] = S & a[2] != I -> a[1] != I
+rule_656: a[1] = E -> a[1] != I
+rule_657: a[2] = OSTATUS & a[1] != I -> a[1] = S
+rule_658: a[2] = E & a[2] != OSTATUS -> a[1] = I
+rule_659: a[1] = S & a[2] = I -> a[1] != I
+rule_660: a[2] != I & a[2] != E -> a[1] != M
+rule_661: a[2] = E & a[2] != S -> a[1] != OSTATUS
+rule_662: a[2] = E & a[1] = I -> a[1] != E
+rule_663: a[1] != OSTATUS & a[2] = M -> a[2] != E
+rule_664: a[1] != S & a[2] = OSTATUS -> a[1] = I
+rule_665: a[2] != I & a[1] = I -> a[1] != S
+rule_666: a[2] = M -> a[2] != OSTATUS
+rule_667: a[1] = S & a[2] != S -> a[1] != OSTATUS
+rule_668: a[1] != S & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_669: a[1] != M & a[1] = OSTATUS -> a[1] != E
+rule_670: a[2] != E & a[2] = OSTATUS -> a[2] != I
+rule_671: a[2] = E & a[2] != I -> a[2] != S
+rule_672: a[2] = E & a[2] != OSTATUS -> a[2] != S
+rule_673: a[2] = S & a[1] != I -> a[2] != E
+rule_674: a[2] != I & a[2] != M -> a[1] != M
+rule_675: a[1] = S & a[1] != OSTATUS -> a[2] != M
+rule_676: a[1] != OSTATUS & a[1] = E -> a[1] != S
+rule_677: a[2] != S & a[1] = OSTATUS -> a[2] != OSTATUS
+rule_678: a[1] = I & a[2] = OSTATUS -> a[1] != M
+rule_679: a[1] = M & a[2] = I -> a[1] != OSTATUS
+rule_680: a[1] != S & a[1] = E -> a[1] != OSTATUS
+rule_681: a[2] != S & a[1] = M -> a[1] != OSTATUS
+rule_682: a[2] = S -> a[2] != OSTATUS
+rule_683: a[2] = I & a[1] = E -> a[2] != OSTATUS
+rule_684: a[1] != OSTATUS & a[1] = I -> a[1] != E
+rule_685: a[1] != S & a[1] != I -> a[2] != OSTATUS
+rule_686: a[2] != S & a[1] = M -> a[1] != I
+rule_687: a[1] != OSTATUS & a[2] = S -> a[2] != OSTATUS
+rule_688: a[2] = I -> a[2] != M
+rule_689: a[1] = S & a[1] != M -> a[1] != E
+rule_690: a[2] = E & a[1] != M -> a[2] != I
+rule_691: a[1] = S & a[2] != S -> a[1] != M
+rule_692: a[1] = S & a[2] = I -> a[2] != OSTATUS
+rule_693: a[1] = S & a[2] = S -> a[2] != OSTATUS
+rule_694: a[2] != S & a[2] = I -> a[2] != E
+rule_695: a[2] != S & a[2] = M -> a[1] != S
+rule_696: a[1] = M -> a[2] != OSTATUS
+rule_697: a[1] = M -> a[2] != S
+rule_698: a[1] = S & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_699: a[1] = S & a[1] != E -> a[1] != M
+rule_700: a[2] = I & a[1] != E -> a[2] != M
+rule_701: a[1] != M & a[2] = M -> a[2] != OSTATUS
+rule_702: a[2] != I -> a[1] != E
+rule_703: a[1] != OSTATUS & a[2] = S -> a[1] != E
+rule_704: a[2] != M & a[1] = E -> a[2] = I
+rule_705: a[1] = I -> a[1] != OSTATUS
+rule_706: a[1] = OSTATUS & a[1] != I -> a[2] != OSTATUS
+rule_707: a[2] != S & a[2] = M -> a[1] != M
+rule_708: a[2] != M & a[1] = I -> a[1] != E
+rule_709: a[1] != S & a[2] = S -> a[2] != M
+rule_710: a[1] = M & a[1] != E -> a[2] != S
+rule_711: a[1] = M & a[2] != OSTATUS -> a[1] != I
+rule_712: a[2] != OSTATUS & a[2] = M -> a[2] != E
+rule_713: a[1] != E & a[2] = S -> a[1] != M
+rule_714: a[2] = I & a[1] = I -> a[1] != E
+rule_715: a[2] != OSTATUS & a[2] = S -> a[2] != M
+rule_716: a[1] != OSTATUS & a[1] = M -> a[2] != E
+rule_717: a[2] != I & a[1] = I -> a[1] != M
+rule_718: a[2] = OSTATUS & a[1] != I -> a[2] != S
+rule_719: a[2] = S & a[1] != I -> a[1] != M
+rule_720: a[1] != OSTATUS & a[2] = S -> a[1] != M
+rule_721: a[2] != S & a[1] = M -> a[2] != M
+rule_722: a[2] != S & a[2] = OSTATUS -> a[1] != OSTATUS
+rule_723: a[2] = M -> a[1] != E
+rule_724: a[1] != E & a[2] = OSTATUS -> a[1] != M
+rule_725: a[1] = I & a[2] = S -> a[2] != E
+rule_726: a[2] = S -> a[1] != E
+rule_727: a[2] = I & a[1] = I -> a[2] != E
+rule_728: a[2] != I & a[2] != OSTATUS -> a[1] != M
+rule_729: a[1] = I & a[2] = M -> a[1] != E
+rule_730: a[1] = S & a[2] != M -> a[1] != I
+rule_731: a[2] != M & a[2] = S -> a[2] != I
+rule_732: a[1] != S & a[2] = M -> a[2] != OSTATUS
+rule_733: a[2] != E & a[2] = OSTATUS -> a[2] != S
+rule_734: a[2] != I & a[1] = OSTATUS -> a[2] = S
+rule_735: a[1] = I & a[2] = OSTATUS -> a[2] != M
+rule_736: a[2] = E & a[1] != M -> a[2] != M

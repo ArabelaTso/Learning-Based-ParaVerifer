@@ -1,8 +1,0 @@
-rule_1:   a[i] = E -> a[j] = I
-rule_2:   a[i] = OSTATUS -> a[j] = S
-rule_3:   a[i] = I -> a[j] = I
-rule_4:   a[j] = I -> a[i] != OSTATUS
-rule_5:   a[i] = M -> a[j] = I
-rule_6:   a[j] = S -> a[i] != E
-rule_7:   a[j] = S -> a[i] != M
-rule_8:   a[j] = S -> a[i] != I

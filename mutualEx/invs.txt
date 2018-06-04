@@ -1,0 +1,6 @@
+rule_1: n[P1] = E -> x = false
+rule_2: n[P1] = C -> n[P2] != C
+rule_3: n[P1] = C -> x = false
+rule_4: n[P1] = E -> n[P2] != E
+rule_5: n[P1] = E -> n[P2] != C
+rule_6: n[P1] = C -> n[P2] != E

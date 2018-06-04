@@ -1,0 +1,12 @@
+rule_1:   n[i] = E -> x = false
+rule_2:   n[j] = E -> x = false
+rule_3:   n[i] = C -> n[j] != C
+rule_4:   n[j] = C -> n[i] != C
+rule_5:   n[i] = C -> x = false
+rule_6:   n[j] = C -> x = false
+rule_7:   n[i] = E -> n[j] != E
+rule_8:   n[j] = E -> n[i] != E
+rule_9:   n[i] = E -> n[j] != C
+rule_10:   n[j] = E -> n[i] != C
+rule_11:   n[i] = C -> n[j] != E
+rule_12:   n[j] = C -> n[i] != E

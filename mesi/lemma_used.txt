@@ -1,1 +1,5 @@
-rule_1:   state[i] = M -> state[j] = I
+rule_1:   state[i] = S -> state[j] != M
+rule_2:   state[i] = M -> state[j] != M
+rule_3:   state[i] = S -> state[j] != E
+rule_4:   state[i] = M -> state[j] != S
+rule_5:   state[i] = M -> state[j] != E

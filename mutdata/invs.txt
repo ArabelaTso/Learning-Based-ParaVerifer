@@ -1,0 +1,6 @@
+rule_1: n[P1].st = C -> n[P1].data = auxDATA
+rule_2: n[P1].st = E -> n[P2].st != E
+rule_3: n[P1].st = C -> n[P2].st != C
+rule_4: n[P1].st = C -> n[P2].st != E
+rule_5: n[P1].st = E -> n[P1].data = auxDATA
+rule_6: n[P1].st = E -> n[P2].st != C

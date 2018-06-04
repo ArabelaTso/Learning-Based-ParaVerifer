@@ -1,0 +1,13 @@
+n[1],n[2],x
+I,I,true
+T,I,true
+I,T,true
+C,I,false
+T,T,true
+I,C,false
+E,I,false
+C,T,false
+T,C,false
+I,E,false
+E,T,false
+T,E,false

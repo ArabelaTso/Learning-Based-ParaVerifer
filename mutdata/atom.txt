@@ -1,0 +1,12 @@
+n[1].st = C
+n[1].st = E
+n[1].st = I 
+n[1].st = T
+n[2].st = C
+n[2].st = E
+n[2].st = I 
+n[2].st = T
+x = TRUE
+x = FALSE
+n[1].data = auxDATA
+n[2].data = auxDATA

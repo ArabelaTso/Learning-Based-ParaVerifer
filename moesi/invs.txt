@@ -1,0 +1,10 @@
+rule_1: a[P1] = OSTATUS -> a[P2] != OSTATUS
+rule_2: a[P1] = OSTATUS -> a[P2] != E
+rule_3: a[P1] = S -> a[P2] != M
+rule_4: a[P1] = E -> a[P2] != E
+rule_5: a[P1] = E -> a[P2] = I
+rule_6: a[P1] = E -> a[P2] != OSTATUS
+rule_7: a[P1] = S -> a[P2] != E
+rule_8: a[P1] = E -> a[P2] != S
+rule_9: a[P1] = E -> a[P2] != M
+rule_10: a[P1] = OSTATUS -> a[P2] != M

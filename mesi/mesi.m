@@ -1,16 +1,16 @@
 const 
-      NODENUMS : 3;
+      NODENUMS : 2;
 type 
      location: enum{ M, E, S, I};
 
-     NODE: scalarset(NODENUMS);
-     ABS_NODE : union {NODE, enum{Other}};
+     NODE: 1..NODENUMS;
+
 var 
     state : array [NODE] of location;
   
     
 ruleset i : NODE do rule "t1"
-state[i] = E ==>
+    state[i] = E ==>
 begin
     state[i]  :=  M;
     endrule; endruleset;

@@ -1,0 +1,144 @@
+rule_1: state[1] = E & state[2] != M -> state[2] != E
+rule_2: state[1] = S & state[2] != M -> state[2] != E
+rule_3: state[1] != M & state[1] = S -> state[2] != E
+rule_4: state[1] = M & state[2] != M -> state[1] != S
+rule_5: state[2] = M & state[2] != S -> state[1] != S
+rule_6: state[1] != M & state[1] = E -> state[2] != M
+rule_7: state[2] = M & state[2] != S -> state[1] != E
+rule_8: state[2] != S & state[1] = S -> state[1] != E
+rule_9: state[1] != S & state[2] = E -> state[2] != S
+rule_10: state[1] = M & state[2] != S -> state[2] != E
+rule_11: state[1] = M & state[1] != E -> state[1] != S
+rule_12: state[2] != E & state[1] = M -> state[2] != M
+rule_13: state[2] != E & state[2] = S -> state[1] != M
+rule_14: state[1] != M & state[2] = E -> state[1] != E
+rule_15: state[1] = M & state[2] != M -> state[2] != E
+rule_16: state[1] != M & state[2] = E -> state[2] != M
+rule_17: state[1] != S & state[2] = E -> state[2] != M
+rule_18: state[1] != E & state[2] = S -> state[2] != M
+rule_19: state[2] != E & state[1] = M -> state[1] != E
+rule_20: state[1] != M & state[2] = S -> state[1] != E
+rule_21: state[1] != M & state[2] = E -> state[1] != S
+rule_22: state[1] = E & state[2] != M -> state[1] != M
+rule_23: state[2] = M -> state[1] != E
+rule_24: state[1] = E & state[1] != S -> state[2] != M
+rule_25: state[2] != E & state[2] = S -> state[1] != E
+rule_26: state[1] != E & state[1] = S -> state[1] != M
+rule_27: state[2] = M & state[1] != S -> state[2] != E
+rule_28: state[1] = E & state[1] != S -> state[1] != M
+rule_29: state[1] != E & state[2] = E -> state[2] != M
+rule_30: state[2] != S & state[1] = S -> state[2] != M
+rule_31: state[2] = E -> state[1] != E
+rule_32: state[1] != E & state[2] = S -> state[2] != E
+rule_33: state[1] != E & state[2] = E -> state[1] != M
+rule_34: state[1] != M & state[2] = M -> state[1] != E
+rule_35: state[2] = E & state[2] != M -> state[1] != E
+rule_36: state[1] != E & state[1] = S -> state[2] != M
+rule_37: state[1] != E & state[1] = S -> state[2] != E
+rule_38: state[2] != E & state[2] = S -> state[2] != M
+rule_39: state[2] = E -> state[2] != M
+rule_40: state[2] = E & state[2] != M -> state[1] != S
+rule_41: state[1] != M & state[1] = S -> state[2] != M
+rule_42: state[2] = E & state[2] != M -> state[1] != M
+rule_43: state[2] = S & state[1] = S -> state[2] != E
+rule_44: state[2] != E & state[2] = M -> state[1] != E
+rule_45: state[1] != M & state[1] = E -> state[2] != S
+rule_46: state[1] = M -> state[2] != M
+rule_47: state[1] = M & state[2] != S -> state[1] != S
+rule_48: state[2] = S & state[1] = S -> state[1] != E
+rule_49: state[1] = E -> state[2] != M
+rule_50: state[1] != S & state[1] = M -> state[2] != E
+rule_51: state[1] != M & state[2] = S -> state[2] != E
+rule_52: state[1] = S -> state[2] != E
+rule_53: state[2] = E -> state[2] != S
+rule_54: state[1] != E & state[2] = S -> state[1] != M
+rule_55: state[1] = M & state[2] != S -> state[2] != M
+rule_56: state[1] != M & state[1] = E -> state[1] != S
+rule_57: state[1] != M & state[2] = M -> state[1] != S
+rule_58: state[1] = E & state[2] != M -> state[2] != S
+rule_59: state[1] != M & state[2] = M -> state[2] != S
+rule_60: state[2] = M -> state[1] != M
+rule_61: state[2] = S & state[2] != M -> state[1] != M
+rule_62: state[1] != M & state[2] = M -> state[2] != E
+rule_63: state[2] != E & state[1] = E -> state[2] != M
+rule_64: state[2] = E & state[2] != S -> state[1] != S
+rule_65: state[2] != E & state[1] = E -> state[2] != S
+rule_66: state[1] != S & state[2] = E -> state[1] != E
+rule_67: state[2] = S -> state[1] != M
+rule_68: state[1] = E -> state[2] != E
+rule_69: state[2] = S & state[1] = S -> state[2] != M
+rule_70: state[1] = M & state[1] != E -> state[2] != E
+rule_71: state[2] = S & state[2] != M -> state[2] != E
+rule_72: state[2] = M & state[1] != E -> state[1] != S
+rule_73: state[1] = E & state[2] != S -> state[1] != M
+rule_74: state[1] != E & state[2] = E -> state[2] != S
+rule_75: state[1] = M -> state[1] != E
+rule_76: state[2] = S -> state[2] != E
+rule_77: state[1] = E -> state[1] != M
+rule_78: state[1] = M -> state[2] != S
+rule_79: state[1] = S -> state[2] != M
+rule_80: state[2] = M & state[1] != E -> state[2] != S
+rule_81: state[2] = M & state[1] != S -> state[1] != E
+rule_82: state[2] = M & state[2] != S -> state[1] != M
+rule_83: state[2] = M & state[2] != S -> state[2] != E
+rule_84: state[1] != S & state[2] = S -> state[2] != E
+rule_85: state[2] = E & state[2] != S -> state[1] != M
+rule_86: state[2] != E & state[1] = E -> state[1] != S
+rule_87: state[1] = M & state[1] != E -> state[2] != M
+rule_88: state[2] = M & state[1] != S -> state[2] != S
+rule_89: state[2] = M & state[1] != E -> state[1] != M
+rule_90: state[1] != S & state[1] = M -> state[2] != M
+rule_91: state[1] != E & state[2] = E -> state[1] != S
+rule_92: state[1] = E & state[1] != S -> state[2] != E
+rule_93: state[1] != M & state[1] = E -> state[2] != E
+rule_94: state[2] = M -> state[2] != E
+rule_95: state[1] = E -> state[1] != S
+rule_96: state[2] = E -> state[1] != M
+rule_97: state[2] != S & state[1] = S -> state[1] != M
+rule_98: state[1] != M & state[2] = S -> state[2] != M
+rule_99: state[1] = M & state[1] != E -> state[2] != S
+rule_100: state[1] = S -> state[1] != M
+rule_101: state[2] = E & state[2] != S -> state[1] != E
+rule_102: state[1] != M & state[2] = E -> state[2] != S
+rule_103: state[1] = E & state[2] != S -> state[1] != S
+rule_104: state[1] != S & state[2] = S -> state[1] != M
+rule_105: state[2] = S & state[1] = S -> state[1] != M
+rule_106: state[2] != E & state[1] = S -> state[1] != E
+rule_107: state[2] = S -> state[2] != M
+rule_108: state[2] = M -> state[1] != S
+rule_109: state[1] != M & state[1] = S -> state[1] != E
+rule_110: state[2] = S & state[2] != M -> state[1] != E
+rule_111: state[1] = E -> state[2] != S
+rule_112: state[2] != E & state[1] = S -> state[1] != M
+rule_113: state[1] != S & state[2] = S -> state[1] != E
+rule_114: state[1] = E & state[2] != S -> state[2] != E
+rule_115: state[1] != S & state[1] = M -> state[2] != S
+rule_116: state[2] = M & state[1] != E -> state[2] != E
+rule_117: state[2] = M & state[1] != S -> state[1] != M
+rule_118: state[2] != E & state[1] = M -> state[2] != S
+rule_119: state[2] != E & state[1] = M -> state[1] != S
+rule_120: state[2] = E & state[2] != M -> state[2] != S
+rule_121: state[2] = E & state[2] != S -> state[2] != M
+rule_122: state[2] != E & state[2] = M -> state[2] != S
+rule_123: state[2] != S & state[1] = S -> state[2] != E
+rule_124: state[2] = S -> state[1] != E
+rule_125: state[1] = S -> state[1] != E
+rule_126: state[2] != E & state[2] = M -> state[1] != S
+rule_127: state[1] != S & state[2] = E -> state[1] != M
+rule_128: state[1] = M & state[2] != S -> state[1] != E
+rule_129: state[1] = E & state[2] != S -> state[2] != M
+rule_130: state[2] != E & state[1] = S -> state[2] != M
+rule_131: state[2] = E -> state[1] != S
+rule_132: state[1] = M & state[2] != M -> state[2] != S
+rule_133: state[1] = S & state[2] != M -> state[1] != M
+rule_134: state[1] = E & state[1] != S -> state[2] != S
+rule_135: state[1] = M & state[2] != M -> state[1] != E
+rule_136: state[2] = M -> state[2] != S
+rule_137: state[1] = M -> state[2] != E
+rule_138: state[1] = M -> state[1] != S
+rule_139: state[1] != S & state[2] = S -> state[2] != M
+rule_140: state[2] != E & state[2] = M -> state[1] != M
+rule_141: state[1] != S & state[1] = M -> state[1] != E
+rule_142: state[1] = E & state[2] != M -> state[1] != S
+rule_143: state[1] = S & state[2] != M -> state[1] != E
+rule_144: state[2] != E & state[1] = E -> state[1] != M

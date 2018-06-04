@@ -1,0 +1,170 @@
+This program should be regarded as a DEBUGGING aid, not as a 
+certifier of correctness.
+Call with the -l flag or read the license file for terms
+and conditions of use.
+Run this program with "-h" for the list of options.
+
+Bugs, questions, and comments should be directed to
+"melatti@di.uniroma1.it".
+
+CMurphi compiler last modified date: Mar  5 2018
+Include files last modified date:    Nov 8 2016
+==========================================================================
+
+==========================================================================
+Caching Murphi Release 5.4.9.1
+Finite-state Concurrent System Verifier.
+
+Caching Murphi Release 5.4.9.1 is based on various versions of Murphi.
+Caching Murphi Release 5.4.9.1 :
+Copyright (C) 2009-2012 by Sapienza University of Rome.
+Murphi release 3.1 :
+Copyright (C) 1992 - 1999 by the Board of Trustees of
+Leland Stanford Junior University.
+
+==========================================================================
+
+Protocol: moesi/moesi
+
+Algorithm:
+	Verification by breadth first search.
+	with symmetry algorithm 3 -- Heuristic Small Memory Normalization
+	with permutation trial limit 10.
+
+Memory usage:
+
+	* The size of each state is 24 bits (rounded up to 8 bytes).
+	* The memory allocated for the hash table and state queue is
+	  10240 Mbytes.
+	  With two words of overhead per state, the maximum size of
+	  the state space is 609523813 states.
+	   * Use option "-k" or "-m" to increase this, if necessary.
+	* Capacity in queue for breadth-first search: 60952381 states.
+	   * Change the constant gPercentActiveStates in mu_prolog.inc
+	     to increase this, if necessary.
+State 1:
+a[1]:I
+a[2]:I
+a[3]:I
+
+State 2:
+a[1]:E
+a[2]:I
+a[3]:I
+
+State 3:
+a[1]:I
+a[2]:E
+a[3]:I
+
+State 4:
+a[1]:I
+a[2]:I
+a[3]:E
+
+State 5:
+a[1]:S
+a[2]:I
+a[3]:I
+
+State 6:
+a[1]:I
+a[2]:S
+a[3]:I
+
+State 7:
+a[1]:I
+a[2]:I
+a[3]:S
+
+State 8:
+a[1]:S
+a[2]:S
+a[3]:I
+
+State 9:
+a[1]:S
+a[2]:I
+a[3]:S
+
+State 10:
+a[1]:M
+a[2]:I
+a[3]:I
+
+State 11:
+a[1]:I
+a[2]:S
+a[3]:S
+
+State 12:
+a[1]:I
+a[2]:M
+a[3]:I
+
+State 13:
+a[1]:I
+a[2]:I
+a[3]:M
+
+State 14:
+a[1]:S
+a[2]:S
+a[3]:S
+
+State 15:
+a[1]:OSTATUS
+a[2]:S
+a[3]:I
+
+State 16:
+a[1]:OSTATUS
+a[2]:I
+a[3]:S
+
+State 17:
+a[1]:S
+a[2]:OSTATUS
+a[3]:I
+
+State 18:
+a[1]:I
+a[2]:OSTATUS
+a[3]:S
+
+State 19:
+a[1]:S
+a[2]:I
+a[3]:OSTATUS
+
+State 20:
+a[1]:I
+a[2]:S
+a[3]:OSTATUS
+
+State 21:
+a[1]:OSTATUS
+a[2]:S
+a[3]:S
+
+State 22:
+a[1]:S
+a[2]:OSTATUS
+a[3]:S
+
+State 23:
+a[1]:S
+a[2]:S
+a[3]:OSTATUS
+
+
+==========================================================================
+
+Status:
+
+	No error found.
+
+State Space Explored:
+
+	23 states, 96 rules fired in 6.45s.
+

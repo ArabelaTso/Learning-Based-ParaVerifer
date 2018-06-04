@@ -1,0 +1,5 @@
+rule_1:   a[i] = S -> a[j] != E
+rule_2:   a[i] = OSTATUS -> a[j] != E
+rule_3:   a[i] = OSTATUS -> a[j] != M
+rule_4:   a[i] = OSTATUS -> a[j] != OSTATUS
+rule_5:   a[i] = S -> a[j] != M

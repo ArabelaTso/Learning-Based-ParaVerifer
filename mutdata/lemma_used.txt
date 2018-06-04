@@ -1,0 +1,6 @@
+rule_1:   n[i].st = C -> n[j].st != C
+rule_2:   n[i].st = E -> n[i].data = auxDATA
+rule_3:   n[i].st = C -> n[j].st != E
+rule_4:   n[i].st = E -> n[j].st != E
+rule_5:   n[i].st = E -> n[j].st != C
+rule_6:   n[i].st = C -> n[i].data = auxDATA

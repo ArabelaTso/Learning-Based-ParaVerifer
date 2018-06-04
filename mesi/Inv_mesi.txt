@@ -1,4 +1,0 @@
-rule_1:   state[i] = E -> state[j] = I
-rule_2:   state[i] = M -> state[j] = I
-rule_3:   state[j] = E -> state[i] = I
-rule_4:   state[j] = M -> state[i] = I

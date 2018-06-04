@@ -1,10 +1,9 @@
 const 
-    num_NODEs: 3;
+    num_NODEs : 2;
 
 type 
-    NODE : scalarset(num_NODEs);
+    NODE : 1..num_NODEs;
     locationType: enum{M, OSTATUS, E, S, I};
-    ABS_NODE : union {NODE, enum{Other}};
 
 var 
     a : array[NODE] of locationType;

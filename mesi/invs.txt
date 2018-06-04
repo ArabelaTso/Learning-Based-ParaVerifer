@@ -1,0 +1,8 @@
+rule_1: state[P1] = E -> state[P2] != E
+rule_2: state[P1] = M -> state[P2] != M
+rule_3: state[P1] = E -> state[P2] != M
+rule_4: state[P1] = E -> state[P2] != S
+rule_5: state[P1] = S -> state[P2] != E
+rule_6: state[P1] = M -> state[P2] != S
+rule_7: state[P1] = M -> state[P2] != E
+rule_8: state[P1] = S -> state[P2] != M
