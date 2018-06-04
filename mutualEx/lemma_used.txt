@@ -1,0 +1,3 @@
+rule_1:   n[i] = E -> x = false
+rule_2:   n[i] = E -> n[j] != E
+rule_3:   n[i] = E -> n[j] != C
